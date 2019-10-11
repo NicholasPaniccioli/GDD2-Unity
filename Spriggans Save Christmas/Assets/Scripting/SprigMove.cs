@@ -36,6 +36,7 @@ public class SprigMove : MonoBehaviour
             if (forwardVec != new Vector2(-1,0))
             {
                 forwardVec = new Vector2(-1, 0);
+                transform.rotation = Quaternion.Euler(0, 0, -90);
             }
             // move the player
             else
@@ -51,6 +52,7 @@ public class SprigMove : MonoBehaviour
             if (forwardVec != new Vector2(1, 0))
             {
                 forwardVec = new Vector2(1, 0);
+                transform.rotation = Quaternion.Euler(0, 0, 90);
             }
             // move the player
             else
@@ -66,6 +68,7 @@ public class SprigMove : MonoBehaviour
             if (forwardVec != new Vector2(0, 1))
             {
                 forwardVec = new Vector2(0, 1);
+                transform.rotation = Quaternion.Euler(0, 0, 180);
             }
             // move the player
             else
@@ -81,6 +84,7 @@ public class SprigMove : MonoBehaviour
             if (forwardVec != new Vector2(0, -1))
             {
                 forwardVec = new Vector2(0, -1);
+                transform.rotation = Quaternion.Euler(0, 0, 0);
             }
             // move the player
             else
