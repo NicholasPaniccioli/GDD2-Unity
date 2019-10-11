@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class HoldItem : MonoBehaviour
 {
-    List<GameObject> items;
-    int maxSize;
+    public List<GameObject> items;
+    public int maxSize;
 
     // Start is called before the first frame update
     void Start()
