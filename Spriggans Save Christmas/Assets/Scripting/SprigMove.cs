@@ -7,8 +7,8 @@ using UnityEngine;
 
 public class SprigMove : MonoBehaviour
 {
-    Vector2 currentPos;
-    Vector2 forwardVec;
+    public static Vector2 currentPos;
+    public static Vector2 forwardVec;
     static GameObject gridMan;
     static GridManager gridScript;
     Tile[,] grid;
