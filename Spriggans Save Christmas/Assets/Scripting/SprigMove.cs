@@ -9,13 +9,16 @@ public class SprigMove : MonoBehaviour
 {
     Vector2 currentPos;
     Vector2 forwardVec;
-    static GameObject gridMan = GameObject.Find("GridManager");
-    static GridManager gridScript = gridMan.GetComponent<GridManager>();
-    Tile[,] grid = gridScript.Grid;
+    static GameObject gridMan;
+    static GridManager gridScript;
+    Tile[,] grid;
 
     // Start is called before the first frame update
     void Start()
     {
+        gridMan = GameObject.Find("GridManager");
+        gridScript = gridMan.GetComponent<GridManager>();
+        grid = gridScript.Grid;
         currentPos = new Vector2(0, 0);
         forwardVec = new Vector2(0, -1);
         transform.position = new Vector3(currentPos.x, currentPos.y, 0);
