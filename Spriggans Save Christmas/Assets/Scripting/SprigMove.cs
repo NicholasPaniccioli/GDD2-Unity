@@ -7,15 +7,15 @@ using UnityEngine;
 
 public class SprigMove : MonoBehaviour
 {
-    GameObject gridMan;
     Vector2 currentPos;
     Vector2 forwardVec;
-    private Tile[,] grid;
+    static GameObject gridMan = GameObject.Find("GridManager");
+    static GridManager gridScript = gridMan.GetComponent<GridManager>();
+    Tile[,] grid = gridScript.Grid;
 
     // Start is called before the first frame update
     void Start()
     {
-        gridMan = GameObject.Find("GridManager");
         currentPos = new Vector2(0, 0);
         forwardVec = new Vector2(0, -1);
         transform.position = new Vector3(currentPos.x, currentPos.y, 0);
@@ -44,9 +44,11 @@ public class SprigMove : MonoBehaviour
             {
                 if (currentPos.x > -10)
                 {
-                    if(gridMan.Grid[currentPos.x + forwardVec.x][currentPos.y + forwardVec.y]) { }
-                    currentPos += forwardVec;
-                    transform.position = new Vector3(currentPos.x, currentPos.y, 0);
+                    if(true)
+                    {
+                        currentPos += forwardVec;
+                        transform.position = new Vector3(currentPos.x, currentPos.y, 0);
+                    }             
                 }
             }
         }
