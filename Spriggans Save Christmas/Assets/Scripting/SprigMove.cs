@@ -31,6 +31,9 @@ public class SprigMove : MonoBehaviour
         currentPos = gameObject.transform.position;
     }
 
+    /// <summary>
+    /// Moves the GameObject 1 tile on the grid
+    /// </summary>
     private void Move()
     {
         // left

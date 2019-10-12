@@ -21,8 +21,10 @@ public class Timer : MonoBehaviour
     {
         countDown.text = ("" + timeLeft);
     }
-
-    //Method to adjust the timer
+    /// <summary>
+    ///Method to adjust the timer
+    /// </summary>
+    /// <returns></returns>
     IEnumerator LoseTime()
     {
         while (timeLeft > 0)
