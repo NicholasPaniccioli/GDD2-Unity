@@ -29,8 +29,9 @@ public class Resources : MonoBehaviour
     {
         
     }
-
-    //Sets a new state, and Changes the sprite depending on the state of the object.  Since there is no art, that section is commented out
+    /// <summary>
+    ///Sets a new state, and Changes the sprite depending on the state of the object.  Since there is no art, that section is commented out
+    /// </summary>
     public void changeState(State state)
     {
         this.state = state;

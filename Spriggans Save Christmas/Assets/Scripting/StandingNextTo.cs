@@ -6,7 +6,7 @@ public class StandingNextTo : MonoBehaviour
 {
     Vector2 currentPos;
     Vector2 forwardVec;
-
+    
     // Start is called before the first frame update
     void Start()
     {

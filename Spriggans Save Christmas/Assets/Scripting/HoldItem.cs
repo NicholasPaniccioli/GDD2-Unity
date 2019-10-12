@@ -19,6 +19,11 @@ public class HoldItem : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// Adds an item to its holding list
+    /// </summary>
+    /// <param name="item">the item to add</param>
+    /// <returns></returns>
     bool GetItem(GameObject item)
     {
         if (items.Count < maxSize)
