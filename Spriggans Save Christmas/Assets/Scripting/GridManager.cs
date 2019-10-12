@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class GridManager : MonoBehaviour {
 
-    private Tile[,] grid = new Tile[20,9];
+    private Tile[,] grid = new Tile[21,9];
     public Tile[,] Grid { get { return grid; } }
 
-    public int width = 20;
+    public int width = 21;
     public int height = 9;
 
     public int x,y = 0;

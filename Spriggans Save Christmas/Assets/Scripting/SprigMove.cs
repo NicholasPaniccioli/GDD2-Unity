@@ -10,6 +10,7 @@ public class SprigMove : MonoBehaviour
     GameObject gridMan;
     Vector2 currentPos;
     Vector2 forwardVec;
+    private Tile[,] grid;
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +44,7 @@ public class SprigMove : MonoBehaviour
             {
                 if (currentPos.x > -10)
                 {
+                    if(gridMan.Grid[currentPos.x + forwardVec.x][currentPos.y + forwardVec.y]) { }
                     currentPos += forwardVec;
                     transform.position = new Vector3(currentPos.x, currentPos.y, 0);
                 }
