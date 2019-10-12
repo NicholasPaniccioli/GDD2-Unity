@@ -25,7 +25,7 @@ public class Timer : MonoBehaviour
     //Method to adjust the timer
     IEnumerator LoseTime()
     {
-        while (true)
+        while (timeLeft > 0)
         {
             yield return new WaitForSeconds(1);
             timeLeft--;
