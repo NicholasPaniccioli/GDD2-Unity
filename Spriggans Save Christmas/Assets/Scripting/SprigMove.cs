@@ -41,8 +41,11 @@ public class SprigMove : MonoBehaviour
             // move the player
             else
             {
-                currentPos += forwardVec;
-                transform.position = new Vector3(currentPos.x, currentPos.y, 0);
+                if (currentPos.x > -10)
+                {
+                    currentPos += forwardVec;
+                    transform.position = new Vector3(currentPos.x, currentPos.y, 0);
+                }
             }
         }
         // right
@@ -57,8 +60,11 @@ public class SprigMove : MonoBehaviour
             // move the player
             else
             {
-                currentPos += forwardVec;
-                transform.position = new Vector3(currentPos.x, currentPos.y, 0);
+                if (currentPos.x < 10)
+                {
+                    currentPos += forwardVec;
+                    transform.position = new Vector3(currentPos.x, currentPos.y, 0);
+                }
             }
         }
         // up
@@ -73,8 +79,11 @@ public class SprigMove : MonoBehaviour
             // move the player
             else
             {
-                currentPos += forwardVec;
-                transform.position = new Vector3(currentPos.x, currentPos.y, 0);
+                if (currentPos.y < 4)
+                {
+                    currentPos += forwardVec;
+                    transform.position = new Vector3(currentPos.x, currentPos.y, 0);
+                }
             }
         }
         // down
@@ -88,9 +97,12 @@ public class SprigMove : MonoBehaviour
             }
             // move the player
             else
-            { 
-                currentPos += forwardVec;
-                transform.position = new Vector3(currentPos.x, currentPos.y, 0);
+            {
+                if (currentPos.y > -4)
+                {
+                    currentPos += forwardVec;
+                    transform.position = new Vector3(currentPos.x, currentPos.y, 0);
+                }
             }
         }
     }
