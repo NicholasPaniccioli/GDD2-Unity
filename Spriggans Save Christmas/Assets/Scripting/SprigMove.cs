@@ -10,7 +10,7 @@ public class SprigMove : MonoBehaviour
     GameObject gridMan;
     Vector2 currentPos;
     Vector2 forwardVec;
-
+    
     // Start is called before the first frame update
     void Start()
     {
