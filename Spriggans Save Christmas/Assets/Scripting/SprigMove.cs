@@ -7,14 +7,18 @@ using UnityEngine;
 
 public class SprigMove : MonoBehaviour
 {
-    GameObject gridMan;
     Vector2 currentPos;
     Vector2 forwardVec;
-    
+    static GameObject gridMan;
+    static GridManager gridScript;
+    Tile[,] grid;
+
     // Start is called before the first frame update
     void Start()
     {
         gridMan = GameObject.Find("GridManager");
+        gridScript = gridMan.GetComponent<GridManager>();
+        grid = gridScript.Grid;
         currentPos = new Vector2(0, 0);
         forwardVec = new Vector2(0, -1);
         transform.position = new Vector3(currentPos.x, currentPos.y, 0);
@@ -41,8 +45,14 @@ public class SprigMove : MonoBehaviour
             // move the player
             else
             {
-                currentPos += forwardVec;
-                transform.position = new Vector3(currentPos.x, currentPos.y, 0);
+                if (currentPos.x > -10)
+                {
+                    if(true)
+                    {
+                        currentPos += forwardVec;
+                        transform.position = new Vector3(currentPos.x, currentPos.y, 0);
+                    }             
+                }
             }
         }
         // right
@@ -57,8 +67,11 @@ public class SprigMove : MonoBehaviour
             // move the player
             else
             {
-                currentPos += forwardVec;
-                transform.position = new Vector3(currentPos.x, currentPos.y, 0);
+                if (currentPos.x < 10)
+                {
+                    currentPos += forwardVec;
+                    transform.position = new Vector3(currentPos.x, currentPos.y, 0);
+                }
             }
         }
         // up
@@ -73,8 +86,11 @@ public class SprigMove : MonoBehaviour
             // move the player
             else
             {
-                currentPos += forwardVec;
-                transform.position = new Vector3(currentPos.x, currentPos.y, 0);
+                if (currentPos.y < 4)
+                {
+                    currentPos += forwardVec;
+                    transform.position = new Vector3(currentPos.x, currentPos.y, 0);
+                }
             }
         }
         // down
@@ -88,9 +104,12 @@ public class SprigMove : MonoBehaviour
             }
             // move the player
             else
-            { 
-                currentPos += forwardVec;
-                transform.position = new Vector3(currentPos.x, currentPos.y, 0);
+            {
+                if (currentPos.y > -4)
+                {
+                    currentPos += forwardVec;
+                    transform.position = new Vector3(currentPos.x, currentPos.y, 0);
+                }
             }
         }
     }
