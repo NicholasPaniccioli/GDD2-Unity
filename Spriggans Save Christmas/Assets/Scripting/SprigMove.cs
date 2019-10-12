@@ -7,9 +7,9 @@ using UnityEngine;
 
 public class SprigMove : MonoBehaviour
 {
-    GameObject gridMan;
-    Vector2 currentPos;
-    Vector2 forwardVec;
+    public GameObject gridMan;
+    public static Vector2 currentPos;
+    public static Vector2 forwardVec;
 
     // Start is called before the first frame update
     void Start()
