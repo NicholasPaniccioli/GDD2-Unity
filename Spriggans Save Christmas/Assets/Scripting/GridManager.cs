@@ -21,4 +21,18 @@ public class GridManager : MonoBehaviour {
     void Update() {
         
     }
+
+    // Add a tile to the grid check if it is already there
+    public bool AddToGrid(int x, int y, Tile inputTile)
+    {
+        if(grid[x, y] != inputTile)
+        {
+            grid[x, y] = inputTile;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }

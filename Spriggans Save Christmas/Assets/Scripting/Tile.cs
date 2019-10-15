@@ -22,7 +22,7 @@ public class Tile : MonoBehaviour {
     /// Adds the object itself to the grid if there is space
     /// </summary>
     private void FindSelfInGrid() {
-        if (gridMan.GetComponent<GridManager>().AddToGrid(Math.Ceiling(gameObject.transform.position.x), Math.Ceiling(gameObject.transform.position.y), this)) {
+        if (gridMan.GetComponent<GridManager>().AddToGrid((int)Math.Ceiling(gameObject.transform.position.x), (int)Math.Ceiling(gameObject.transform.position.y), this)) {
             gridX = Math.Ceiling(gameObject.transform.position.x);
             gridY = Math.Ceiling(gameObject.transform.position.y);
         } else {
