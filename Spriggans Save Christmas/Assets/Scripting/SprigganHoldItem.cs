@@ -23,7 +23,7 @@ public class SprigganHoldItem : MonoBehaviour
         for(int i = 0; i < materials.Count; i ++)
         {    
             //Checks if the player is facing a station
-            if(currentPos + forwardVec == materials[i].transform.position)
+            if(new Vector3(currentPos.x + forwardVec.x, currentPos.y + forwardVec.y, materials[i].transform.position.z) == materials[i].transform.position)
             {
                 facing = true;
             }
@@ -41,7 +41,7 @@ public class SprigganHoldItem : MonoBehaviour
         for(int i = 0; i < materials.Count; i ++)
         {    
             //Checks if the player is facing a station
-            if(currentPos + forwardVec == materials[i].transform.position)
+            if(new Vector3(currentPos.x + forwardVec.x, currentPos.y + forwardVec.y, materials[i].transform.position.z) == materials[i].transform.position)
             {
                 facing = true;
             }
