@@ -58,5 +58,12 @@ public class Resources : MonoBehaviour
 
     public State GetState(){ return state; }
 
-    
+    public bool GetResource(string getName)
+    {
+        if()
+        {
+
+        }
+        return false;
+    }
 }

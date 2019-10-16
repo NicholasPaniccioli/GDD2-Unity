@@ -60,4 +60,12 @@ public class SprigganHoldItem : MonoBehaviour
         //        item = MATERIAL ITEM
         //}
     }
+
+    private void ChangeSprite()
+    {
+        if(holding)
+        {
+            
+        }
+    }
 }
