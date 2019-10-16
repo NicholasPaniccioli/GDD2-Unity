@@ -24,7 +24,7 @@ public class Resources : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        state = State.unrefined;
     }
 
     // Update is called once per frame

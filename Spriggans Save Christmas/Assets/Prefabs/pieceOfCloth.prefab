@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8500750834035911287}
   - component: {fileID: 5664249257909118557}
+  - component: {fileID: 1858006971325610797}
   m_Layer: 0
   m_Name: pieceOfCloth
   m_TagString: Untagged
@@ -80,6 +81,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1858006971325610797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2543125022496845593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72789c3003fccef41ad03e29b2608669, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: Cloth
 --- !u!1 &4064264332523470025
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,4 +186,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72789c3003fccef41ad03e29b2608669, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
+  name: 

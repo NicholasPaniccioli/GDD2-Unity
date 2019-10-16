@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72789c3003fccef41ad03e29b2608669, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
+  name: Wood
 --- !u!1 &7976167261184554385
 GameObject:
   m_ObjectHideFlags: 0
