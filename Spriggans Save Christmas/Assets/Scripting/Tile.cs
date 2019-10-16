@@ -7,6 +7,8 @@ public class Tile : MonoBehaviour {
 
     private double gridX, gridY;
     private GameObject gridMan = GameObject.Find("GridManager");
+    // name of what the tile is i.e. workbench, wood, coal, cloth weaver
+    public string name;
     
     // Start is called before the first frame update
     void Start() {

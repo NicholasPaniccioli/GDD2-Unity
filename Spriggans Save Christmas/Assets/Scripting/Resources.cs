@@ -13,6 +13,9 @@ public class Resources : MonoBehaviour
         stage3
     }
 
+    // name for the resource
+    public string name;
+
     public State state;
     
     //A list of sprites, so we can change the image depending on the state of the consumable.  Since we don't have art, this is commented out.
