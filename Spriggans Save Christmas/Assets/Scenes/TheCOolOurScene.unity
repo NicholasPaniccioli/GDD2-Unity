@@ -295,6 +295,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   items:
   - {fileID: 2543125022496845593, guid: 99375563935aed44da9a36f74f5ab120, type: 3}
+  acceptedResource: Wood
 --- !u!1 &174113113
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,6 +432,7 @@ GameObject:
   m_Component:
   - component: {fileID: 328956705}
   - component: {fileID: 328956704}
+  - component: {fileID: 328956706}
   m_Layer: 0
   m_Name: Holding Left
   m_TagString: Untagged
@@ -500,6 +502,21 @@ Transform:
   m_Father: {fileID: 1925870947}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &328956706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328956703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ee2bf95ed9e54746a1bbebb8a88925c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items:
+  - {fileID: 0}
+  acceptedResource: All
 --- !u!1 &399015885
 GameObject:
   m_ObjectHideFlags: 0
@@ -669,6 +686,8 @@ GameObject:
   m_Component:
   - component: {fileID: 558020087}
   - component: {fileID: 558020086}
+  - component: {fileID: 558020089}
+  - component: {fileID: 558020088}
   m_Layer: 0
   m_Name: Fabric Weaver
   m_TagString: Untagged
@@ -738,6 +757,35 @@ Transform:
   m_Father: {fileID: 1925870947}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &558020088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 558020085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08ffad50b8aad0541ad7d73dc43f1eed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interval: 0
+  state: 0
+--- !u!114 &558020089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 558020085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ee2bf95ed9e54746a1bbebb8a88925c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items:
+  - {fileID: 0}
+  acceptedResource: Cloth
 --- !u!1 &581549466
 GameObject:
   m_ObjectHideFlags: 0
@@ -906,6 +954,7 @@ GameObject:
   m_Component:
   - component: {fileID: 621100727}
   - component: {fileID: 621100726}
+  - component: {fileID: 621100728}
   m_Layer: 0
   m_Name: WorkBench
   m_TagString: Untagged
@@ -975,6 +1024,23 @@ Transform:
   m_Father: {fileID: 1925870947}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &621100728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 621100725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ee2bf95ed9e54746a1bbebb8a88925c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  acceptedResource: All
 --- !u!1 &755288684
 GameObject:
   m_ObjectHideFlags: 0
@@ -985,6 +1051,7 @@ GameObject:
   m_Component:
   - component: {fileID: 755288686}
   - component: {fileID: 755288685}
+  - component: {fileID: 755288687}
   m_Layer: 0
   m_Name: Holding Mid Left
   m_TagString: Untagged
@@ -1054,6 +1121,21 @@ Transform:
   m_Father: {fileID: 1925870947}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &755288687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 755288684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ee2bf95ed9e54746a1bbebb8a88925c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items:
+  - {fileID: 0}
+  acceptedResource: All
 --- !u!1 &795062533
 GameObject:
   m_ObjectHideFlags: 0
@@ -1163,6 +1245,7 @@ GameObject:
   m_Component:
   - component: {fileID: 867898143}
   - component: {fileID: 867898142}
+  - component: {fileID: 867898144}
   m_Layer: 0
   m_Name: Holding Mid Right
   m_TagString: Untagged
@@ -1232,6 +1315,21 @@ Transform:
   m_Father: {fileID: 1925870947}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &867898144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 867898141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ee2bf95ed9e54746a1bbebb8a88925c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items:
+  - {fileID: 0}
+  acceptedResource: All
 --- !u!1 &876271254
 GameObject:
   m_ObjectHideFlags: 0
@@ -1972,6 +2070,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1874224470}
   - component: {fileID: 1874224469}
+  - component: {fileID: 1874224471}
   m_Layer: 0
   m_Name: Holding Right
   m_TagString: Untagged
@@ -2041,6 +2140,21 @@ Transform:
   m_Father: {fileID: 1925870947}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1874224471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1874224468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ee2bf95ed9e54746a1bbebb8a88925c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items:
+  - {fileID: 0}
+  acceptedResource: All
 --- !u!1 &1895851870
 GameObject:
   m_ObjectHideFlags: 0

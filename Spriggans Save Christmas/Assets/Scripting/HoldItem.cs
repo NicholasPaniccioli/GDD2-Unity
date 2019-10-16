@@ -5,6 +5,8 @@ using UnityEngine;
 public class HoldItem : MonoBehaviour
 {
     public List<GameObject> items;
+    public string acceptedResource; //the resource this machine refines
+
 
     // Start is called before the first frame update
     void Start()
@@ -23,9 +25,9 @@ public class HoldItem : MonoBehaviour
     /// </summary>
     /// <param name="item">the item to add</param>
     /// <returns></returns>
-    bool GetItem(GameObject item)
+    bool SetItem(GameObject item)
     {
-        if (items.Count < items.Capacity)
+        if ((item.GetComponent<Resources>().name == acceptedResource || item.GetComponent<Resources>().name == "All") && items.Count < items.Capacity)
         {
             items.Add(item);
             return true;
