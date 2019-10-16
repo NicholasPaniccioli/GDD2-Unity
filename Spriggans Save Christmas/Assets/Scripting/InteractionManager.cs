@@ -41,15 +41,24 @@ public class InteractionManager1 : MonoBehaviour
             }
             else if (grid[(int)facingPos.x, (int)facingPos.y].name == "Cloth")
             {
+                if (player.GetComponent<SprigganHoldItem>().holding == false)
+                {
 
+                }
             }
             else if (grid[(int)facingPos.x, (int)facingPos.y].name == "Coal")
             {
+                if (player.GetComponent<SprigganHoldItem>().holding == false)
+                {
 
+                }
             }
             else if (grid[(int)facingPos.x, (int)facingPos.y].name == "Wood")
             {
+                if (player.GetComponent<SprigganHoldItem>().holding == false)
+                {
 
+                }
             }
             else if (grid[(int)facingPos.x, (int)facingPos.y].name == "Cloth Weaver")
             {
@@ -64,7 +73,11 @@ public class InteractionManager1 : MonoBehaviour
                 // if the player is holding something check if the item is on the list
                 if (player.GetComponent<SprigganHoldItem>().holding == true)
                 {
-                    santaBag.GetComponent<SantaLetter>().ListCheck(player.GetComponent<SprigganHoldItem>().item.name);
+                    if(santaBag.GetComponent<SantaLetter>().ListCheck(player.GetComponent<SprigganHoldItem>().item.name) == true)
+                    {
+                        player.GetComponent<SprigganHoldItem>().holding = false;
+                        player.GetComponent<SprigganHoldItem>().item = null;
+                    }
                 }
             }
         }
