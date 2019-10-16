@@ -24,8 +24,16 @@ public class SantaLetter : MonoBehaviour
     }
 
     // check if the toy entered the bag is on the list
-    public bool ListCheck()
+    public bool ListCheck(string name)
     {
+        for (int i = 0; i < letterRequest.Count; i++)
+        {
+            if (letterRequest[i] == name)
+            {
+                letterRequest.RemoveAt(i);
+                return true;
+            }
+        }
         return false;
     }
 }

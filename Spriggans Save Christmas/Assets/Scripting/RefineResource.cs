@@ -37,7 +37,7 @@ public class RefineResource : MonoBehaviour
     /// <returns></returns>
     IEnumerator LoseTime()
     {
-        while (currentResource.GetState() != State.stage1)
+        while (currentResource.GetState() != State.stage3)
         {
             yield return new WaitForSeconds(interval);
             switch (currentResource.GetState())
@@ -51,7 +51,6 @@ public class RefineResource : MonoBehaviour
                 case State.stage2:
                     currentResource.SetState(State.stage3);
                     break;
-
             }
             state = currentResource.GetState();
         }

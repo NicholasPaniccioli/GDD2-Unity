@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SprigganHoldItem : MonoBehaviour
 {
-    GameObject item; //The item the player is holding
-    bool holding; //Is the player holding an item?
+    public GameObject item; //The item the player is holding
+    public bool holding; //Is the player holding an item?
     bool facing; //Is the player facing the table to interact with?
 
     GameObject spriggan; //The Player

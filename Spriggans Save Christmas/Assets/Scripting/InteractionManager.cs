@@ -8,6 +8,7 @@ public class InteractionManager1 : MonoBehaviour
     private Vector2 facingPos;
     private GameObject gridMan;
     private Tile[,] grid;
+    private GameObject santaBag;
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +17,7 @@ public class InteractionManager1 : MonoBehaviour
         facingPos = SprigMove.currentPos + SprigMove.forwardVec;
         gridMan = GameObject.Find("GridManager");
         grid = gridMan.GetComponent<GridManager>().Grid;
+        santaBag = GameObject.Find("Santas ToyBag");
     }
 
     // Update is called once per frame
@@ -59,7 +61,11 @@ public class InteractionManager1 : MonoBehaviour
             }
             else if (grid[(int)facingPos.x, (int)facingPos.y].name == "Santa's Bag")
             {
-
+                // if the player is holding something check if the item is on the list
+                if (player.GetComponent<SprigganHoldItem>().holding == true)
+                {
+                    santaBag.GetComponent<SantaLetter>().ListCheck(player.GetComponent<SprigganHoldItem>().item.name);
+                }
             }
         }
     }
