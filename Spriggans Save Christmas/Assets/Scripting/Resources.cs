@@ -11,10 +11,12 @@ public enum State
     stage3 = 3
 }
 
+public class Resources : MonoBehaviour
+{
     // name for the resource
     public string name;
 
-    public State state;
+    private State state;
     
     //A list of sprites, so we can change the image depending on the state of the consumable.  Since we don't have art, this is commented out.
     //public List<Sprite> sprites;
@@ -56,4 +58,5 @@ public enum State
 
     public State GetState(){ return state; }
 
+    
 }
