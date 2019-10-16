@@ -279,7 +279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08ffad50b8aad0541ad7d73dc43f1eed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interval: 10
+  interval: 2
   state: 0
 --- !u!114 &48080893
 MonoBehaviour:
@@ -293,7 +293,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ee2bf95ed9e54746a1bbebb8a88925c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  items: []
+  items:
+  - {fileID: 2543125022496845593, guid: 99375563935aed44da9a36f74f5ab120, type: 3}
 --- !u!1 &174113113
 GameObject:
   m_ObjectHideFlags: 0
