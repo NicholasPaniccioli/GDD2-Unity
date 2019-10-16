@@ -2,18 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//The state of the consumable (EX wood block = unrefined, large wood = stage1, medium wood = stage2, small wood = stage3)
+public enum State
+{
+    unrefined = 0,
+    stage1 = 1,
+    stage2 = 2,
+    stage3 = 3
+}
+
+
 public class Resources : MonoBehaviour
 {
-    //The state of the consumable (EX wood block = unrefined, large wood = stage1, medium wood = stage2, small wood = stage3)
-    public enum State
-    {
-        unrefined,
-        stage1,
-        stage2,
-        stage3
-    }
-
-    public State state;
+    private State state;
     
     //A list of sprites, so we can change the image depending on the state of the consumable.  Since we don't have art, this is commented out.
     //public List<Sprite> sprites;
@@ -32,9 +33,9 @@ public class Resources : MonoBehaviour
     /// <summary>
     ///Sets a new state, and Changes the sprite depending on the state of the object.  Since there is no art, that section is commented out
     /// </summary>
-    public void changeState(State state)
+    public void SetState(State newState)
     {
-        this.state = state;
+        state = newState;
         /*SpriteRenderer renderer = gameObject.GetComponent<SpriteRenderer>();
         switch (state)
         {
@@ -52,5 +53,7 @@ public class Resources : MonoBehaviour
                 break;
         }*/
     }
+
+    public State GetState(){ return state; }
 
 }

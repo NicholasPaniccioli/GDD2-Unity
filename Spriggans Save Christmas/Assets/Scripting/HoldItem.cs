@@ -5,12 +5,11 @@ using UnityEngine;
 public class HoldItem : MonoBehaviour
 {
     public List<GameObject> items;
-    public int maxSize;
 
     // Start is called before the first frame update
     void Start()
     {
-        items = new List<GameObject>();
+
     }
 
     // Update is called once per frame
@@ -26,7 +25,7 @@ public class HoldItem : MonoBehaviour
     /// <returns></returns>
     bool GetItem(GameObject item)
     {
-        if (items.Count < maxSize)
+        if (items.Count < items.Capacity)
         {
             items.Add(item);
             return true;
