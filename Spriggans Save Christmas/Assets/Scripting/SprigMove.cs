@@ -2,22 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// Started by Kyle Mulvey
-// Beginning to implement the generation of the grid.
-
 public class SprigMove : MonoBehaviour
 {
     public static Vector2 currentPos;
     public static Vector2 forwardVec;
-    static GameObject gridMan;
+    //static GameObject gridMan;
     static GridManager gridScript;
     Tile[,] grid;
 
     // Start is called before the first frame update
     void Start()
     {
-        gridMan = GameObject.Find("GridManager");
-        gridScript = gridMan.GetComponent<GridManager>();
+        gridScript = GameObject.Find("Grid Manager").GetComponent<GridManager>();
         grid = gridScript.Grid;
         currentPos = new Vector2(0, 0);
         forwardVec = new Vector2(0, -1);

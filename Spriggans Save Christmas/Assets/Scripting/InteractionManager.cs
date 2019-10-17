@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InteractionManager1 : MonoBehaviour
+public class InteractionManager : MonoBehaviour
 {
     private GameObject player;
     private Vector2 facingPos;
     private GameObject gridMan;
     private Tile[,] grid;
     private GameObject santaBag;
+    private SprigganHoldItem sprigganHoldItem; 
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +19,7 @@ public class InteractionManager1 : MonoBehaviour
         gridMan = GameObject.Find("GridManager");
         grid = gridMan.GetComponent<GridManager>().Grid;
         santaBag = GameObject.Find("Santas ToyBag");
+        sprigganHoldItem = player.GetComponent<SprigganHoldItem>();
     }
 
     // Update is called once per frame
@@ -41,26 +43,26 @@ public class InteractionManager1 : MonoBehaviour
             }
             else if (grid[(int)facingPos.x, (int)facingPos.y].name == "Cloth")
             {
-                if (player.GetComponent<SprigganHoldItem>().holding == false)
+                if (sprigganHoldItem.holding == false)
                 {
-                    player.GetComponent<SprigganHoldItem>().holding = true;
-                    player.GetComponent<SprigganHoldItem>().item = grid[(int)facingPos.x, (int)facingPos.y].GetComponent<Resources>().GetResource("Cloth");
+                    sprigganHoldItem.holding = true;
+                    sprigganHoldItem.item = grid[(int)facingPos.x, (int)facingPos.y].GetComponent<Resources>().GetResource("Cloth");
                 }
             }
             else if (grid[(int)facingPos.x, (int)facingPos.y].name == "Coal")
             {
-                if (player.GetComponent<SprigganHoldItem>().holding == false)
+                if (sprigganHoldItem.holding == false)
                 {
-                    player.GetComponent<SprigganHoldItem>().holding = true;
-                    player.GetComponent<SprigganHoldItem>().item = grid[(int)facingPos.x, (int)facingPos.y].GetComponent<Resources>().GetResource("Coal");
+                    sprigganHoldItem.holding = true;
+                    sprigganHoldItem.item = grid[(int)facingPos.x, (int)facingPos.y].GetComponent<Resources>().GetResource("Coal");
                 }
             }
             else if (grid[(int)facingPos.x, (int)facingPos.y].name == "Wood")
             {
-                if (player.GetComponent<SprigganHoldItem>().holding == false)
+                if (sprigganHoldItem.holding == false)
                 {
-                    player.GetComponent<SprigganHoldItem>().holding = true;
-                    player.GetComponent<SprigganHoldItem>().item = grid[(int)facingPos.x, (int)facingPos.y].GetComponent<Resources>().GetResource("Wood");
+                    sprigganHoldItem.holding = true;
+                    sprigganHoldItem.item = grid[(int)facingPos.x, (int)facingPos.y].GetComponent<Resources>().GetResource("Wood");
                 }
             }
             else if (grid[(int)facingPos.x, (int)facingPos.y].name == "Cloth Weaver")
@@ -74,12 +76,12 @@ public class InteractionManager1 : MonoBehaviour
             else if (grid[(int)facingPos.x, (int)facingPos.y].name == "Santa's Bag")
             {
                 // if the player is holding something check if the item is on the list
-                if (player.GetComponent<SprigganHoldItem>().holding == true)
+                if (sprigganHoldItem.holding == true)
                 {
-                    if(santaBag.GetComponent<SantaLetter>().ListCheck(player.GetComponent<SprigganHoldItem>().item.name) == true)
+                    if(santaBag.GetComponent<SantaLetter>().ListCheck(sprigganHoldItem.item.name) == true)
                     {
-                        player.GetComponent<SprigganHoldItem>().holding = false;
-                        player.GetComponent<SprigganHoldItem>().item = null;
+                        sprigganHoldItem.holding = false;
+                        sprigganHoldItem.item = null;
                     }
                 }
             }
