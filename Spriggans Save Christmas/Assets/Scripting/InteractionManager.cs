@@ -43,21 +43,24 @@ public class InteractionManager1 : MonoBehaviour
             {
                 if (player.GetComponent<SprigganHoldItem>().holding == false)
                 {
-
+                    player.GetComponent<SprigganHoldItem>().holding = true;
+                    player.GetComponent<SprigganHoldItem>().item = grid[(int)facingPos.x, (int)facingPos.y].GetComponent<Resources>().GetResource("Cloth");
                 }
             }
             else if (grid[(int)facingPos.x, (int)facingPos.y].name == "Coal")
             {
                 if (player.GetComponent<SprigganHoldItem>().holding == false)
                 {
-
+                    player.GetComponent<SprigganHoldItem>().holding = true;
+                    player.GetComponent<SprigganHoldItem>().item = grid[(int)facingPos.x, (int)facingPos.y].GetComponent<Resources>().GetResource("Coal");
                 }
             }
             else if (grid[(int)facingPos.x, (int)facingPos.y].name == "Wood")
             {
                 if (player.GetComponent<SprigganHoldItem>().holding == false)
                 {
-
+                    player.GetComponent<SprigganHoldItem>().holding = true;
+                    player.GetComponent<SprigganHoldItem>().item = grid[(int)facingPos.x, (int)facingPos.y].GetComponent<Resources>().GetResource("Wood");
                 }
             }
             else if (grid[(int)facingPos.x, (int)facingPos.y].name == "Cloth Weaver")
