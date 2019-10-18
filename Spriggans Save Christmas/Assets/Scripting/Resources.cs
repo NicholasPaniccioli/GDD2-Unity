@@ -24,7 +24,7 @@ public class Resources : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        state = State.unrefined;
     }
 
     // Update is called once per frame
@@ -58,5 +58,24 @@ public class Resources : MonoBehaviour
 
     public State GetState(){ return state; }
 
-    
+    public GameObject GetResource(string getName)
+    {
+        GameObject item = Instantiate(GameObject.Find("WoodResource"));
+        if (getName == "Wood")
+        {
+            item = Instantiate(GameObject.Find("WoodResource"));
+            item.name = "Wood";
+        }
+        else if (getName == "Coal")
+        {
+            item = Instantiate(GameObject.Find("CoalResource"));
+            item.name = "Coal";
+        }
+        else if (getName == "Cloth")
+        {
+            item = Instantiate(GameObject.Find("ClothResource"));
+            item.name = "Cloth";
+        }
+        return item;
+    }
 }

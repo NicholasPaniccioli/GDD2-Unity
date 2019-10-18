@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class GridManager : MonoBehaviour {
 
-    private Tile[,] grid = new Tile[21,9];
+    private Tile[,] grid;
     public Tile[,] Grid { get { return grid; } }
 
-    public int width = 21;
-    public int height = 9;
-
-    public int x,y = 0;
-
+    [SerializeField]
+    private int width = 22;
+    [SerializeField]
+    private int height = 10;
+    
     // Start is called before the first frame update
     void Start() {
-        
+        grid = new Tile[width, height];
     }
 
     // Update is called once per frame
@@ -23,15 +23,13 @@ public class GridManager : MonoBehaviour {
     }
 
     // Add a tile to the grid check if it is already there
-    public bool AddToGrid(int x, int y, Tile inputTile)
-    {
-        if(grid[x, y] != inputTile)
-        {
+    public bool AddToGrid(int x, int y, Tile inputTile) {
+        if(x >= 0 && x < width && y >= 0 && y < height && grid[x, y] != inputTile && grid[x,y] == null) {
             grid[x, y] = inputTile;
+            Debug.Log("Added a new Tile to " + x + ", " + y + "!");
             return true;
-        }
-        else
-        {
+        } else {
+            Debug.Log("Failed to add to grid, object at " + x + "," + y + " was not added.");
             return false;
         }
     }

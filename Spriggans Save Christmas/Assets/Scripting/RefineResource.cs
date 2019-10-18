@@ -11,6 +11,7 @@ public class RefineResource : MonoBehaviour
     private HoldItem holdItem;  //reference to this tables hold method
     public int interval;  //the time it takes for items to change state
     public State state;
+    private bool removed;  //a flag for if the player removes the object
 
 
     // Start is called before the first frame update
@@ -18,6 +19,7 @@ public class RefineResource : MonoBehaviour
     {
         currentItem = null;
         holdItem = gameObject.GetComponent<HoldItem>();
+        removed = false;
     }
 
     // Update is called once per frame
@@ -28,6 +30,15 @@ public class RefineResource : MonoBehaviour
             currentItem = holdItem.items[0];
             currentResource = currentItem.GetComponent<Resources>();
             StartCoroutine("LoseTime");
+            removed = false;
+        }
+        else
+        {
+            if (holdItem.items.Count == 0 && currentItem != null)
+            {
+                currentItem = null;
+                removed = true;
+            }
         }
     }
 
@@ -40,6 +51,10 @@ public class RefineResource : MonoBehaviour
         while (currentResource.GetState() != State.stage3)
         {
             yield return new WaitForSeconds(interval);
+            if (removed)
+            {
+                break;
+            }
             switch (currentResource.GetState())
             {
                 case State.unrefined:
