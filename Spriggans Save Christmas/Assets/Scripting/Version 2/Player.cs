@@ -9,6 +9,7 @@ public class Player : Tile
     {
         isHolding = false;
         holdingName = null;
+        holdingState = HoldingState.unrefined;
     }
 
     // Update is called once per frame
