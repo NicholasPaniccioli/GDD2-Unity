@@ -31,7 +31,7 @@ public class Sprig_Move : MonoBehaviour
     private void Move()
     {
         // left
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) // if the player presses 'A' or the Left Arrow
         {
             // if the player isnt facing the direction they are going to move
             if (forwardVec != new Vector3(-1, 0))
@@ -53,7 +53,7 @@ public class Sprig_Move : MonoBehaviour
             }
         }
         // right
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))    // if the player presses 'D' or the Right Arrow
         {
             // if the player isnt facing the direction they are going to move
             if (forwardVec != new Vector3(1, 0))
@@ -72,7 +72,7 @@ public class Sprig_Move : MonoBehaviour
             }
         }
         // up
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))   // if the player presses 'W' or the Up Arrow
         {
             // if the player isnt facing the direction they are going to move
             if (forwardVec != new Vector3(0, 1))
@@ -91,7 +91,7 @@ public class Sprig_Move : MonoBehaviour
             }
         }
         // down
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)) // if the player presses 'S' or the Down Arrow
         {
             // if the player isnt facing the direction they are going to move
             if (forwardVec != new Vector3(0, -1))
