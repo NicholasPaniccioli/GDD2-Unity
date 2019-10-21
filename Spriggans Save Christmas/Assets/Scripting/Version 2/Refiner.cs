@@ -20,40 +20,49 @@ public class Refiner : Tile
     // Changes the state of the resource
     public override bool Interact(Player player)
     {
-        if (!player.isHolding)
+        if (player.isHolding)
         {
-            return false;
+            holdingName = player.holdingName;
+            holdingState = player.holdingState;
+            isHolding = true;
+            player.isHolding = false;
+            player.holdingName = "";
+            StartCoroutine(LoseTime(player));
+            return true;
         }
-        //StartCoroutine(LoseTime(player));
-        return true;
+        else if (isHolding)
+        {
+            player.isHolding = true;
+            player.holdingState = holdingState;
+            player.holdingName = holdingName;
+            isHolding = false;
+            holdingName = "";
+            return true;
+        }
+        else return false;
     }
 
     /// <summary>
     ///Method to adjust the timer
     /// </summary>
     /// <returns></returns>
-    //IEnumerator LoseTime(Player player)
-   // {
-        //while (player.holdingState != HoldingState.state3)
-        //{
-        //    yield return new WaitForSeconds(intervalTime);
-        //    if (removed)
-        //    {
-        //        break;
-        //    }
-        //    switch (player.holdingState())
-        //    {
-        //        case State.unrefined:
-        //            currentResource.SetState(State.stage1);
-        //            break;
-        //        case State.stage1:
-        //            currentResource.SetState(State.stage2);
-        //            break;
-        //        case State.stage2:
-        //            currentResource.SetState(State.stage3);
-        //            break;
-        //    }
-        //    state = currentResource.GetState();
-        //}
-    //}
+    IEnumerator LoseTime(Player player)
+    {
+        while (isHolding && player.holdingState != HoldingState.state3)
+        {
+            yield return new WaitForSeconds(intervalTime);
+            switch (holdingState)
+            {
+                case HoldingState.unrefined:
+                    holdingState = HoldingState.state1;
+                    break;
+                case HoldingState.state1:
+                    holdingState = HoldingState.state2;
+                    break;
+                case HoldingState.state2:
+                    holdingState = HoldingState.state3;
+                    break;
+            }
+        }
+    }
 }

@@ -24,6 +24,7 @@ public class ResourcePile : Tile
         }
         player.holdingName = holdingName;
         player.holdingState = HoldingState.unrefined;
+        player.isHolding = true;
         return true;
     }
 }

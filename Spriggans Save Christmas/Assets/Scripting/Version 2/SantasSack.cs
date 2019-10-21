@@ -38,6 +38,22 @@ public class SantasSack : Tile
         
     }
 
+    public override bool Interact(Player player)
+    {
+        if (player.isHolding) //makes sure the player is holding an object...
+        {
+            if (CheckGift(player.holdingName)) //...and that the object is one that the player needed to make...
+            {
+                //...then delete the object from the players inventory
+                player.isHolding = false;
+                player.holdingName = "";
+                return true;
+            }
+            return false;
+        }
+        return false;
+    }
+
     // Check to see if the gift is correct.
     // Loop through the list of toys.
     // If the toy is in the list, remove toy from toyList and return true.
