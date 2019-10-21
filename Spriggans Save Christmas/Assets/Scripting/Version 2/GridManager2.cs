@@ -25,17 +25,17 @@ public class GridManager2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerObject.transform.position.y != grid.GetLength(1)-1 && Input.GetKey(KeyCode.W))
+        if (playerObject.transform.position.y != grid.GetLength(1) - 1 && (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)))   // if the user presses 'W' or the Up Arrow
         {
             if (grid[(int)playerObject.transform.position.x, (int)playerObject.transform.position.y + 1] == null)
             {
                 grid[(int)playerObject.transform.position.x, (int)playerObject.transform.position.y] = null;
-                Vector3 newVector = new Vector3(playerObject.transform.position.x, playerObject.transform.position.y+1, playerObject.transform.position.z);
+                Vector3 newVector = new Vector3(playerObject.transform.position.x, playerObject.transform.position.y + 1, playerObject.transform.position.z);
                 playerObject.transform.position = newVector;
                 grid[(int)playerObject.transform.position.x, (int)playerObject.transform.position.y] = playerObject;
             }
         }
-        else if (playerObject.transform.position.y != 0 && Input.GetKey(KeyCode.S))
+        else if (playerObject.transform.position.y != 0 && (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)))    // if the user presses 'S' or the Down Arrow
         {
             if (grid[(int)playerObject.transform.position.x, (int)playerObject.transform.position.y - 1] == null)
             {
@@ -45,17 +45,17 @@ public class GridManager2 : MonoBehaviour
                 grid[(int)playerObject.transform.position.x, (int)playerObject.transform.position.y] = playerObject;
             }
         }
-        else if (Input.GetKey(KeyCode.A))
+        else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))    // if the user presses 'A' or the Left Arrow
         {
-            if (playerObject.transform.position.x != 0 && grid[(int)playerObject.transform.position.x-1 , (int)playerObject.transform.position.y] == null)
+            if (playerObject.transform.position.x != 0 && grid[(int)playerObject.transform.position.x - 1, (int)playerObject.transform.position.y] == null)
             {
                 grid[(int)playerObject.transform.position.x, (int)playerObject.transform.position.y] = null;
-                Vector3 newVector = new Vector3(playerObject.transform.position.x-1, playerObject.transform.position.y , playerObject.transform.position.z);
+                Vector3 newVector = new Vector3(playerObject.transform.position.x - 1, playerObject.transform.position.y, playerObject.transform.position.z);
                 playerObject.transform.position = newVector;
                 grid[(int)playerObject.transform.position.x, (int)playerObject.transform.position.y] = playerObject;
             }
         }
-        else if (Input.GetKey(KeyCode.D))
+        else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))   // if the user presses 'D' or the Right Arrow
         {
             if (playerObject.transform.position.x != grid.GetLength(0)-1 && grid[(int)playerObject.transform.position.x+1, (int)playerObject.transform.position.y] == null)
             {
