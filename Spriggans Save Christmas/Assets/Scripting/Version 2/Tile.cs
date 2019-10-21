@@ -7,11 +7,14 @@ public class Tile : MonoBehaviour
     public string holdingName;  // name of the object the tile is holding
     public bool isHolding;      // true if holding something, false if not holding something
 
+    // Default Constructor
     public Tile()
     {
         isHolding = false;  // isHolding is false by default;
     }
 
+    // Parameterized Constructor
+    // Can specifiy isHolding and holdingName
     public Tile(bool _isHolding, string _holdingName)
     {
         isHolding = _isHolding; // the object is holding something or not
