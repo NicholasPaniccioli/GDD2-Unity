@@ -6,7 +6,7 @@ public class SantasSack : Tile
 {
     // Started by Kyle
 
-    List<string> toyList;   // list of strings representing the toys to be made
+    public List<string> toyList;   // list of strings representing the toys to be made
 
     // default constructor for SantasSack
     public SantasSack()
