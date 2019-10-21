@@ -7,11 +7,12 @@ public class GridManager2 : MonoBehaviour
     public GameObject playerObject;
     public GameObject[] interactObjects;
     private GameObject[,] grid;
+    private Vector3 playerFacing; //vector for interaction
 
     // Start is called before the first frame update
     void Start()
     {
-        grid = new GameObject[25,10];
+        grid = new GameObject[20,10];
         //interactObjects = GameObject.FindGameObjectsWithTag("Object");
         interactObjects = new GameObject[0];
         for (int x = 0; x < interactObjects.Length; x++)
@@ -20,11 +21,13 @@ public class GridManager2 : MonoBehaviour
             grid[(int)interactObjects[x].transform.position.x,(int)interactObjects[x].transform.position.y] = interactObjects[x];
         }
         grid[(int)playerObject.transform.position.x, (int)playerObject.transform.position.y] = playerObject;
+        playerFacing = Vector3.up;
     }
 
     // Update is called once per frame
     void Update()
     {
+        //If the movement key is down, and the player isn't on the edge of the grid, move them.
         if (playerObject.transform.position.y != grid.GetLength(1)-1 && Input.GetKey(KeyCode.W))
         {
             if (grid[(int)playerObject.transform.position.x, (int)playerObject.transform.position.y + 1] == null)
@@ -33,6 +36,7 @@ public class GridManager2 : MonoBehaviour
                 Vector3 newVector = new Vector3(playerObject.transform.position.x, playerObject.transform.position.y+1, playerObject.transform.position.z);
                 playerObject.transform.position = newVector;
                 grid[(int)playerObject.transform.position.x, (int)playerObject.transform.position.y] = playerObject;
+                playerFacing = Vector3.up;
             }
         }
         else if (playerObject.transform.position.y != 0 && Input.GetKey(KeyCode.S))
@@ -43,6 +47,7 @@ public class GridManager2 : MonoBehaviour
                 Vector3 newVector = new Vector3(playerObject.transform.position.x, playerObject.transform.position.y - 1, playerObject.transform.position.z);
                 playerObject.transform.position = newVector;
                 grid[(int)playerObject.transform.position.x, (int)playerObject.transform.position.y] = playerObject;
+                playerFacing = Vector3.down;
             }
         }
         else if (Input.GetKey(KeyCode.A))
@@ -53,6 +58,7 @@ public class GridManager2 : MonoBehaviour
                 Vector3 newVector = new Vector3(playerObject.transform.position.x-1, playerObject.transform.position.y , playerObject.transform.position.z);
                 playerObject.transform.position = newVector;
                 grid[(int)playerObject.transform.position.x, (int)playerObject.transform.position.y] = playerObject;
+                playerFacing = Vector3.left;
             }
         }
         else if (Input.GetKey(KeyCode.D))
@@ -63,6 +69,16 @@ public class GridManager2 : MonoBehaviour
                 Vector3 newVector = new Vector3(playerObject.transform.position.x+1, playerObject.transform.position.y, playerObject.transform.position.z);
                 playerObject.transform.position = newVector;
                 grid[(int)playerObject.transform.position.x, (int)playerObject.transform.position.y] = playerObject;
+                playerFacing = Vector3.right;
+            }
+        }
+        //check for interaction
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Vector3 interactTile = playerObject.transform.position + playerFacing;
+            if (grid[(int)interactTile.x,(int)interactTile.y] != null)
+            {
+                //grid[interactTile.x, interactTile.y].interact(); //comment out when interaction has been done
             }
         }
     }
