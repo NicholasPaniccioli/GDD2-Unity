@@ -17,5 +17,11 @@ public class Tile : MonoBehaviour
         isHolding = _isHolding; // the object is holding something or not
         holdingName = _holdingName; // the name of the object that is held.
     }
+
+    // method to be overridden/overloaded :)
+    public bool Interact()
+    {
+        return false;
+    }
 }
 
