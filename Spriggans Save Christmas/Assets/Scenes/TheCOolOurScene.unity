@@ -249,12 +249,6 @@ MonoBehaviour:
   holdingName: 
   holdingState: 0
   isHolding: 0
-  craftableToy:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!212 &331384361
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -292,7 +286,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e5c0d7364487af142983aa8f72bd367b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6f6e1a0007721e74baa7f04ac3338696, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -388,7 +382,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e94f1ac651d553f4b98ab36d641ce69c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e9efdfa25fc8d4243872a65f95a539db, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -528,7 +522,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 76d8aae1ce29b5b40956f305d60abe00, type: 3}
+  m_Sprite: {fileID: 21300000, guid: eede7ac46b357c54cab88101dceebab6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -586,6 +580,12 @@ MonoBehaviour:
   holdingName: 
   holdingState: 0
   isHolding: 0
+  toyList:
+  - dragon
+  - sword
+  - wand
+  - boat
+  - coal
 --- !u!212 &1637789530
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -623,7 +623,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3a30fde59bc14e24da4851bd98aabc95, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 13aad0bb95e26c843bbfe2ffac31b306, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -663,12 +663,12 @@ PrefabInstance:
     - target: {fileID: 1189987333687157291, guid: ebdae50c272a28d4e9f41104b1fc576b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.01
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1189987333687157291, guid: ebdae50c272a28d4e9f41104b1fc576b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.19
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1189987333687157291, guid: ebdae50c272a28d4e9f41104b1fc576b,
         type: 3}
