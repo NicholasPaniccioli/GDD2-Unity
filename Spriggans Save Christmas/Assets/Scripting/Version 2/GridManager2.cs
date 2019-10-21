@@ -33,6 +33,7 @@ public class GridManager2 : MonoBehaviour
             {
                 grid[(int)playerObject.transform.position.x, (int)playerObject.transform.position.y] = null;
                 Vector3 newVector = new Vector3(playerObject.transform.position.x, playerObject.transform.position.y + 1, playerObject.transform.position.z);
+                //  TODO: non-teleportive movement
                 playerObject.transform.position = newVector;
                 grid[(int)playerObject.transform.position.x, (int)playerObject.transform.position.y] = playerObject;
                 playerFacing = Vector3.up;
