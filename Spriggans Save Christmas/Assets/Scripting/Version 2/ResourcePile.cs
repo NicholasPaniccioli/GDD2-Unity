@@ -7,7 +7,6 @@ public class ResourcePile : Tile
     // Start is called before the first frame update
     void Start()
     {
-        holdingName = "Nothing";
         isHolding = true;
     }
 
@@ -15,5 +14,16 @@ public class ResourcePile : Tile
     void Update()
     {
         
+    }
+
+    public override bool Interact(Player player)
+    {
+        if (player.isHolding)
+        {
+            return false;
+        }
+        player.holdingName = holdingName;
+        player.holdingState = HoldingState.unrefined;
+        return true;
     }
 }

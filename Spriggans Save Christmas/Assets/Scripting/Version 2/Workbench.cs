@@ -17,8 +17,8 @@ public class Workbench : Tile
     }
 
     // Combine resources together to make a toy
-    void Craft()
+    public override bool Interact(Player player)
     {
-
+        return false;
     }
 }

@@ -2,9 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//state of resource, unrefined for raw resources, done for if it a completed object.  If the player has nothing in hand, empty
+public enum HoldingState
+{
+    unrefined,
+    state1,
+    state2,
+    state3,
+    finished
+}
+
 public class Tile : MonoBehaviour
 {
     public string holdingName;  // name of the object the tile is holding
+    public HoldingState holdingState;
     public bool isHolding;      // true if holding something, false if not holding something
 
     // Default Constructor
@@ -22,7 +33,7 @@ public class Tile : MonoBehaviour
     }
 
     // method to be overridden/overloaded :)
-    public bool Interact()
+    public virtual bool Interact(Player player)
     {
         return false;
     }

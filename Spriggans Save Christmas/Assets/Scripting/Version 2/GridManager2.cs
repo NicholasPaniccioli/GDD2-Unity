@@ -13,8 +13,7 @@ public class GridManager2 : MonoBehaviour
     void Start()
     {
         grid = new GameObject[20,10];
-        //interactObjects = GameObject.FindGameObjectsWithTag("Object");
-        interactObjects = new GameObject[0];
+        interactObjects = GameObject.FindGameObjectsWithTag("Interactable");
         for (int x = 0; x < interactObjects.Length; x++)
         {
             //occupies the grid with objects
@@ -33,6 +32,7 @@ public class GridManager2 : MonoBehaviour
             {
                 grid[(int)playerObject.transform.position.x, (int)playerObject.transform.position.y] = null;
                 Vector3 newVector = new Vector3(playerObject.transform.position.x, playerObject.transform.position.y + 1, playerObject.transform.position.z);
+                //  TODO: non-teleportive movement
                 playerObject.transform.position = newVector;
                 grid[(int)playerObject.transform.position.x, (int)playerObject.transform.position.y] = playerObject;
                 playerFacing = Vector3.up;
@@ -77,7 +77,7 @@ public class GridManager2 : MonoBehaviour
             Vector3 interactTile = playerObject.transform.position + playerFacing;
             if (grid[(int)interactTile.x,(int)interactTile.y] != null)
             {
-                //grid[interactTile.x, interactTile.y].interact(); //comment out when interaction has been done
+                grid[(int)interactTile.x, (int)interactTile.y].GetComponent<Tile>().Interact(playerObject.GetComponent<Player>());
             }
         }
     }
