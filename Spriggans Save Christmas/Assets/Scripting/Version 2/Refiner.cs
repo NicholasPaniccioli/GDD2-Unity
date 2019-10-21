@@ -24,7 +24,7 @@ public class Refiner : Tile
         {
             return false;
         }
-        StartCoroutine(LoseTime(player));
+        //StartCoroutine(LoseTime(player));
         return true;
     }
 
