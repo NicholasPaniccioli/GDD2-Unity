@@ -59,22 +59,26 @@ public class Refiner : Tile
     /// <returns></returns>
     IEnumerator LoseTime(Player player)
     {
-        while (isHolding && player.holdingState != HoldingState.state3)
+        if(PauseMenu.paused == false)
         {
-            yield return new WaitForSeconds(intervalTime);
-            switch (holdingState)
+            while (isHolding && player.holdingState != HoldingState.state3)
             {
-                case HoldingState.unrefined:
-                    holdingState = HoldingState.state1;
-                    break;
-                case HoldingState.state1:
-                    holdingState = HoldingState.state2;
-                    break;
-                case HoldingState.state2:
-                    holdingState = HoldingState.state3;
-                    break;
-            }
+                yield return new WaitForSeconds(intervalTime);
+                switch (holdingState)
+                {
+                    case HoldingState.unrefined:
+                        holdingState = HoldingState.state1;
+                        break;
+                    case HoldingState.state1:
+                        holdingState = HoldingState.state2;
+                        break;
+                    case HoldingState.state2:
+                        holdingState = HoldingState.state3;
+                        break;
+                }
             
+            }
         }
+
     }
 }

@@ -30,62 +30,69 @@ public class GridManager2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)))   // if the user presses 'W' or the Up Arrow
+        if (PauseMenu.paused == false)
         {
-            if (playerObject.transform.position.y != grid.GetLength(1) - 1 && grid[(int)playerObject.transform.position.x, (int)playerObject.transform.position.y + 1] == null)
-            {  
-                grid[(int)playerObject.transform.position.x, (int)playerObject.transform.position.y] = null;
-                Vector3 newVector = new Vector3(playerObject.transform.position.x, playerObject.transform.position.y + 1, playerObject.transform.position.z);
-                //  TODO: non-teleportive movement
-                playerObject.transform.position = newVector;
-                grid[(int)playerObject.transform.position.x, (int)playerObject.transform.position.y] = playerObject;
-            }
-            playerObject.GetComponent<SpriteRenderer>().sprite = spriteBackward;
-            playerFacing = Vector3.up;
-        }
-        else if ((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)))    // if the user presses 'S' or the Down Arrow
-        {
-            if (playerObject.transform.position.y != 0 && grid[(int)playerObject.transform.position.x, (int)playerObject.transform.position.y - 1] == null)
+            #region Player Movement
+            if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)))   // if the user presses 'W' or the Up Arrow
             {
-                grid[(int)playerObject.transform.position.x, (int)playerObject.transform.position.y] = null;
-                Vector3 newVector = new Vector3(playerObject.transform.position.x, playerObject.transform.position.y - 1, playerObject.transform.position.z);
-                playerObject.transform.position = newVector;
-                grid[(int)playerObject.transform.position.x, (int)playerObject.transform.position.y] = playerObject;
+                if (playerObject.transform.position.y != grid.GetLength(1) - 1 && grid[(int)playerObject.transform.position.x, (int)playerObject.transform.position.y + 1] == null)
+                {
+                    grid[(int)playerObject.transform.position.x, (int)playerObject.transform.position.y] = null;
+                    Vector3 newVector = new Vector3(playerObject.transform.position.x, playerObject.transform.position.y + 1, playerObject.transform.position.z);
+                    //  TODO: non-teleportive movement
+                    playerObject.transform.position = newVector;
+                    grid[(int)playerObject.transform.position.x, (int)playerObject.transform.position.y] = playerObject;
+                }
+                playerObject.GetComponent<SpriteRenderer>().sprite = spriteBackward;
+                playerFacing = Vector3.up;
             }
-            playerObject.GetComponent<SpriteRenderer>().sprite = spriteForward;
-            playerFacing = Vector3.down;
-        }
-        else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))    // if the user presses 'A' or the Left Arrow
-        {
-            if (playerObject.transform.position.x != 0 && grid[(int)playerObject.transform.position.x - 1, (int)playerObject.transform.position.y] == null)
+            else if ((Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow)))    // if the user presses 'S' or the Down Arrow
             {
-                grid[(int)playerObject.transform.position.x, (int)playerObject.transform.position.y] = null;
-                Vector3 newVector = new Vector3(playerObject.transform.position.x - 1, playerObject.transform.position.y, playerObject.transform.position.z);
-                playerObject.transform.position = newVector;
-                grid[(int)playerObject.transform.position.x, (int)playerObject.transform.position.y] = playerObject;
+                if (playerObject.transform.position.y != 0 && grid[(int)playerObject.transform.position.x, (int)playerObject.transform.position.y - 1] == null)
+                {
+                    grid[(int)playerObject.transform.position.x, (int)playerObject.transform.position.y] = null;
+                    Vector3 newVector = new Vector3(playerObject.transform.position.x, playerObject.transform.position.y - 1, playerObject.transform.position.z);
+                    playerObject.transform.position = newVector;
+                    grid[(int)playerObject.transform.position.x, (int)playerObject.transform.position.y] = playerObject;
+                }
+                playerObject.GetComponent<SpriteRenderer>().sprite = spriteForward;
+                playerFacing = Vector3.down;
             }
-            playerObject.GetComponent<SpriteRenderer>().sprite = spriteLeft;
-            playerFacing = Vector3.left;
-        }
-        else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))   // if the user presses 'D' or the Right Arrow
-        {
-            if (playerObject.transform.position.x != grid.GetLength(0)-1 && grid[(int)playerObject.transform.position.x+1, (int)playerObject.transform.position.y] == null)
+            else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))    // if the user presses 'A' or the Left Arrow
             {
-                grid[(int)playerObject.transform.position.x, (int)playerObject.transform.position.y] = null;
-                Vector3 newVector = new Vector3(playerObject.transform.position.x+1, playerObject.transform.position.y, playerObject.transform.position.z);
-                playerObject.transform.position = newVector;
-                grid[(int)playerObject.transform.position.x, (int)playerObject.transform.position.y] = playerObject;
+                if (playerObject.transform.position.x != 0 && grid[(int)playerObject.transform.position.x - 1, (int)playerObject.transform.position.y] == null)
+                {
+                    grid[(int)playerObject.transform.position.x, (int)playerObject.transform.position.y] = null;
+                    Vector3 newVector = new Vector3(playerObject.transform.position.x - 1, playerObject.transform.position.y, playerObject.transform.position.z);
+                    playerObject.transform.position = newVector;
+                    grid[(int)playerObject.transform.position.x, (int)playerObject.transform.position.y] = playerObject;
+                }
+                playerObject.GetComponent<SpriteRenderer>().sprite = spriteLeft;
+                playerFacing = Vector3.left;
             }
-            playerObject.GetComponent<SpriteRenderer>().sprite = spriteRight;
-            playerFacing = Vector3.right;
-        }
-        //check for interaction
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            Vector3 interactTile = playerObject.transform.position + playerFacing;
-            if (grid[(int)interactTile.x,(int)interactTile.y] != null)
+            else if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))   // if the user presses 'D' or the Right Arrow
             {
-                grid[(int)interactTile.x, (int)interactTile.y].GetComponent<Tile>().Interact(playerObject.GetComponent<Player>());
+                if (playerObject.transform.position.x != grid.GetLength(0) - 1 && grid[(int)playerObject.transform.position.x + 1, (int)playerObject.transform.position.y] == null)
+                {
+                    grid[(int)playerObject.transform.position.x, (int)playerObject.transform.position.y] = null;
+                    Vector3 newVector = new Vector3(playerObject.transform.position.x + 1, playerObject.transform.position.y, playerObject.transform.position.z);
+                    playerObject.transform.position = newVector;
+                    grid[(int)playerObject.transform.position.x, (int)playerObject.transform.position.y] = playerObject;
+                }
+                playerObject.GetComponent<SpriteRenderer>().sprite = spriteRight;
+                playerFacing = Vector3.right;
+            }
+            #endregion
+
+
+            //check for interaction
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                Vector3 interactTile = playerObject.transform.position + playerFacing;
+                if (grid[(int)interactTile.x, (int)interactTile.y] != null)
+                {
+                    grid[(int)interactTile.x, (int)interactTile.y].GetComponent<Tile>().Interact(playerObject.GetComponent<Player>());
+                }
             }
         }
     }
