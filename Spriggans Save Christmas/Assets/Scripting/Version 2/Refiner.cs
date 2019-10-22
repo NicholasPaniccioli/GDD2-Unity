@@ -5,6 +5,7 @@ using UnityEngine;
 public class Refiner : Tile
 {
     public float intervalTime;
+    public string neededItem;
     public Sprite[] sprites = new Sprite[3];
     private int currentSprite;
 
@@ -17,21 +18,24 @@ public class Refiner : Tile
     // Update is called once per frame
     void Update()
     {
-        if (currentSprite >= 12)
-	    {
-           currentSprite = 0;
-        }
-        else
+        if (isHolding)
         {
-            currentSprite++;
-        }            
-        gameObject.GetComponent<SpriteRenderer>().sprite = sprites[currentSprite/6];
+            if (currentSprite >= 12)
+            {
+                currentSprite = 0;
+            }
+            else
+            {
+                currentSprite++;
+            }
+            gameObject.GetComponent<SpriteRenderer>().sprite = sprites[currentSprite / 6];
+        }
     }
 
     // Changes the state of the resource
     public override bool Interact(Player player)
     {
-        if (player.isHolding)
+        if (player.isHolding && player.holdingName == neededItem && !isHolding)
         {
             holdingName = player.holdingName;
             holdingState = player.holdingState;
@@ -41,7 +45,7 @@ public class Refiner : Tile
             StartCoroutine(LoseTime(player));
             return true;
         }
-        else if (isHolding)
+        else if (isHolding && !player.isHolding)
         {
             player.isHolding = true;
             player.holdingState = holdingState;

@@ -6,9 +6,9 @@ using UnityEngine;
 public enum HoldingState
 {
     unrefined,
-    state1,
+    state1, // wood is largest, cloth is smallest
     state2,
-    state3,
+    state3, // wood is smallest, cloth is largest
     finished
 }
 
