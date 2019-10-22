@@ -8,11 +8,15 @@ public class Refiner : Tile
     public string neededItem;
     public Sprite[] sprites = new Sprite[3];
     private int currentSprite;
+    private bool removed;
+    private SpriteRenderer spriteRenderer;
 
     // Start is called before the first frame update
     void Start()
     {
         currentSprite = 0;
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        removed = true;
     }
 
     // Update is called once per frame
@@ -42,16 +46,20 @@ public class Refiner : Tile
             isHolding = true;
             player.isHolding = false;
             player.holdingName = "";
+            removed = false;
+            spriteRenderer.color = new Color(Color.white.r - (float)(0.2*(int)holdingState), Color.white.g - (float)(0.2 * (int)holdingState), Color.white.b - (float)(0.2 * (int)holdingState), Color.white.a);
             StartCoroutine(LoseTime(player));
             return true;
         }
         else if (isHolding && !player.isHolding)
         {
+            removed = true;
             player.isHolding = true;
             player.holdingState = holdingState;
             player.holdingName = holdingName;
             isHolding = false;
             holdingName = "";
+            spriteRenderer.color = Color.white;
             return true;
         }
         else return false;
@@ -65,20 +73,28 @@ public class Refiner : Tile
     {
         while (isHolding && player.holdingState != HoldingState.state3)
         {
-            yield return new WaitForSeconds(intervalTime);
-            switch (holdingState)
+            if (PauseMenu.paused == false)
             {
-                case HoldingState.unrefined:
-                    holdingState = HoldingState.state1;
-                    break;
-                case HoldingState.state1:
-                    holdingState = HoldingState.state2;
-                    break;
-                case HoldingState.state2:
-                    holdingState = HoldingState.state3;
-                    break;
+                yield return new WaitForSeconds(intervalTime);
+                if (!removed)
+                {
+                    switch (holdingState)
+                    {
+                        case HoldingState.unrefined:
+                            holdingState = HoldingState.state1;
+                            spriteRenderer.color = new Color(spriteRenderer.color.r - 0.2f, spriteRenderer.color.g - 0.2f, spriteRenderer.color.b - 0.2f, spriteRenderer.color.a);
+                            break;
+                        case HoldingState.state1:
+                            holdingState = HoldingState.state2;
+                            spriteRenderer.color = new Color(spriteRenderer.color.r - 0.2f, spriteRenderer.color.g - 0.2f, spriteRenderer.color.b - 0.2f, spriteRenderer.color.a);
+                            break;
+                        case HoldingState.state2:
+                            holdingState = HoldingState.state3;
+                            spriteRenderer.color = new Color(spriteRenderer.color.r - 0.2f, spriteRenderer.color.g - 0.2f, spriteRenderer.color.b - 0.2f, spriteRenderer.color.a);
+                            break;
+                    }
+                }
             }
-            
         }
     }
 }

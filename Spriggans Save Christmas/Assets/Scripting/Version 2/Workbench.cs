@@ -125,7 +125,7 @@ public class Workbench : Tile//NOTE, workbench only works with 2 components.  If
             else//if the player has nothing in hand, pick up the object
             {
                 player.holdingName = holdingName;
-                player.holdingState = HoldingState.unrefined;
+                player.holdingState = holdingState;
                 player.isHolding = true;
                 holdingName = "";
                 isHolding = false;

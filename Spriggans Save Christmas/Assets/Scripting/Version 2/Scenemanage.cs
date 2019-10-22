@@ -7,6 +7,9 @@ using UnityEngine.SceneManagement;
 public class Scenemanage : MonoBehaviour {
     //  Loads the main game scene
     public void LoadGame() {
+
+        Time.timeScale = 1f;
+        PauseMenu.paused = false;
         SceneManager.LoadScene("TheCOolOurScene");
     }
 
