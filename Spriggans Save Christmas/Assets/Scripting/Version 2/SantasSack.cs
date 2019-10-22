@@ -58,16 +58,18 @@ public class SantasSack : Tile
     // Loop through the list of toys.
     // If the toy is in the list, remove toy from toyList and return true.
     // Else, return false.
-    bool CheckGift(string toyName)
+    public bool CheckGift(string toyName)
     {
         for(int i = 0; i < toyList.Count; i++ ) // loop through all of the toys in toyList
         {
             if(toyName == toyList[i])   // if the name of the toy is in the list
             {
+                Debug.Log("Successfully removed " + toyList[i] + " from Toy List.");
                 toyList.RemoveAt(i);    // remove toy from toyList
                 return true;            // return true
             }
         }
+        Debug.Log("Did not remove " + toyName + " from Toy List.");
         return false;   // if toy is not in toyList, do nothing to toyList and return false
     }
 }
