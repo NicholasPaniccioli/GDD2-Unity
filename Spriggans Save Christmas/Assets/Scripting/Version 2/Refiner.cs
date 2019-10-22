@@ -18,15 +18,18 @@ public class Refiner : Tile
     // Update is called once per frame
     void Update()
     {
-        if (currentSprite >= 12)
-	    {
-           currentSprite = 0;
-        }
-        else
+        if (isHolding)
         {
-            currentSprite++;
-        }            
-        gameObject.GetComponent<SpriteRenderer>().sprite = sprites[currentSprite/6];
+            if (currentSprite >= 12)
+            {
+                currentSprite = 0;
+            }
+            else
+            {
+                currentSprite++;
+            }
+            gameObject.GetComponent<SpriteRenderer>().sprite = sprites[currentSprite / 6];
+        }
     }
 
     // Changes the state of the resource
