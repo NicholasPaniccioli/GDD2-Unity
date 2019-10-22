@@ -5,22 +5,34 @@ using UnityEngine;
 public class Refiner : Tile
 {
     public float intervalTime;
+    public string neededItem;
+    public Sprite[] sprites = new Sprite[3];
+    private int currentSprite;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        currentSprite = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (currentSprite >= 12)
+	    {
+           currentSprite = 0;
+        }
+        else
+        {
+            currentSprite++;
+        }            
+        gameObject.GetComponent<SpriteRenderer>().sprite = sprites[currentSprite/6];
     }
 
     // Changes the state of the resource
     public override bool Interact(Player player)
     {
-        if (player.isHolding)
+        if (player.isHolding && player.holdingName == neededItem && !isHolding)
         {
             holdingName = player.holdingName;
             holdingState = player.holdingState;
@@ -30,7 +42,7 @@ public class Refiner : Tile
             StartCoroutine(LoseTime(player));
             return true;
         }
-        else if (isHolding)
+        else if (isHolding && !player.isHolding)
         {
             player.isHolding = true;
             player.holdingState = holdingState;
@@ -63,6 +75,7 @@ public class Refiner : Tile
                     holdingState = HoldingState.state3;
                     break;
             }
+            
         }
     }
 }
