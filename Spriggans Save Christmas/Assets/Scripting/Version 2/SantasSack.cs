@@ -8,6 +8,14 @@ public class SantasSack : Tile
 
     public List<string> toyList;   // list of strings representing the toys to be made
 
+    GameObject listBoat;
+    GameObject listDragon;
+    GameObject listSword;
+    GameObject listWand;
+    GameObject listCoal;
+    
+
+
     // default constructor for SantasSack
     public SantasSack()
     {
@@ -29,7 +37,11 @@ public class SantasSack : Tile
     // Start is called before the first frame update
     void Start()
     {
-        
+        listBoat = GameObject.Find("List Boat");
+        listDragon = GameObject.Find("List Dragon");
+        listSword = GameObject.Find("List Sword");
+        listWand = GameObject.Find("List Wand");
+        listCoal = GameObject.Find("List Coal");
     }
 
     // Update is called once per frame
@@ -62,8 +74,28 @@ public class SantasSack : Tile
     {
         for(int i = 0; i < toyList.Count; i++ ) // loop through all of the toys in toyList
         {
-            if(toyName == toyList[i])   // if the name of the toy is in the list
+            if(toyName.ToLower() == toyList[i])   // if the name of the toy is in the list
             {
+                if(toyName == "Boat")
+                {
+                    listBoat.SetActive(false);
+                }
+                if (toyName == "Dragon")
+                {
+                    listDragon.SetActive(false);
+                }
+                if (toyName == "Sword")
+                {
+                    listSword.SetActive(false);
+                }
+                if (toyName == "Wand")
+                {
+                    listWand.SetActive(false);
+                }
+                if (toyName == "Coal")
+                {
+                    listCoal.SetActive(false);
+                }
                 Debug.Log("Successfully removed " + toyList[i] + " from Toy List.");
                 toyList.RemoveAt(i);    // remove toy from toyList
                 return true;            // return true
