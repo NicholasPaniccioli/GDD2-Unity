@@ -131,7 +131,6 @@ GameObject:
   - component: {fileID: 220857000}
   - component: {fileID: 220856999}
   - component: {fileID: 220856998}
-  - component: {fileID: 220857001}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -204,18 +203,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &220857001
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 220856997}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79c7307919dc8c34da32df779bea0ef9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &331384359
 GameObject:
   m_ObjectHideFlags: 0
@@ -345,6 +332,10 @@ MonoBehaviour:
   holdingState: 0
   isHolding: 0
   intervalTime: 5
+  sprites:
+  - {fileID: 21300000, guid: e9efdfa25fc8d4243872a65f95a539db, type: 3}
+  - {fileID: 21300000, guid: 0b95cd55bc4e67f44bcebdbe9283b292, type: 3}
+  - {fileID: 21300000, guid: 480764900607b2f4ea5745526514a9e1, type: 3}
 --- !u!212 &892997827
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -418,7 +409,7 @@ GameObject:
   - component: {fileID: 950030986}
   - component: {fileID: 950030985}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -438,6 +429,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerObject: {fileID: 8471727875681322010}
   interactObjects: []
+  spriteForward: {fileID: 21300000, guid: 9fa3d27c7209d384ea56f28a73a0bedf, type: 3}
+  spriteBackward: {fileID: 21300000, guid: 76d8aae1ce29b5b40956f305d60abe00, type: 3}
+  spriteRight: {fileID: 21300000, guid: 3a30fde59bc14e24da4851bd98aabc95, type: 3}
+  spriteLeft: {fileID: 21300000, guid: e94f1ac651d553f4b98ab36d641ce69c, type: 3}
 --- !u!4 &950030986
 Transform:
   m_ObjectHideFlags: 0

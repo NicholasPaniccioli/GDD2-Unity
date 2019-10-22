@@ -5,16 +5,27 @@ using UnityEngine;
 public class Refiner : Tile
 {
     public float intervalTime;
+    public Sprite[] sprites = new Sprite[3];
+    private int currentSprite;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        currentSprite = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (currentSprite >= 12)
+	    {
+           currentSprite = 0;
+        }
+        else
+        {
+            currentSprite++;
+        }            
+        gameObject.GetComponent<SpriteRenderer>().sprite = sprites[currentSprite/6];
     }
 
     // Changes the state of the resource
@@ -63,6 +74,7 @@ public class Refiner : Tile
                     holdingState = HoldingState.state3;
                     break;
             }
+            
         }
     }
 }
