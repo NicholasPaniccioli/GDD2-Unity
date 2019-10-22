@@ -12,11 +12,11 @@ public class SantasSack : Tile
     public SantasSack()
     {
         toyList = new List<string>();   // make a new list
-        toyList.Add("dragon");
-        toyList.Add("sword");
-        toyList.Add("wand");
-        toyList.Add("boat");
-        toyList.Add("coal");
+        toyList.Add("Dragon");
+        toyList.Add("Sword");
+        toyList.Add("Wand");
+        toyList.Add("Boat");
+        toyList.Add("Coal");
     }
 
     // parameterized constructor for SantasSack

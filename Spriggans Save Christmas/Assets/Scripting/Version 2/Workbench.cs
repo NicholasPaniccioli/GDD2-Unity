@@ -48,7 +48,7 @@ public class Workbench : Tile//NOTE, workbench only works with 2 components.  If
                 #region compareItems
                     if (player.holdingName == dragonRecipe.Item1 && player.holdingState == dragonRecipe.Item2 && holdingName == dragonRecipe.Item3 && holdingState == dragonRecipe.Item4)
                     {
-                        player.holdingName = "dragon";
+                        player.holdingName = "Dragon";
                         player.holdingState = HoldingState.finished;
                         holdingState = HoldingState.unrefined;
                         holdingName = "";
@@ -57,7 +57,7 @@ public class Workbench : Tile//NOTE, workbench only works with 2 components.  If
                     }
                     else if (holdingName == dragonRecipe.Item1 && holdingState == dragonRecipe.Item2 && player.holdingName == dragonRecipe.Item3 && player.holdingState == dragonRecipe.Item4)
                     {
-                        player.holdingName = "dragon";
+                        player.holdingName = "Dragon";
                         player.holdingState = HoldingState.finished;
                         holdingState = HoldingState.unrefined;
                         holdingName = "";
@@ -66,7 +66,7 @@ public class Workbench : Tile//NOTE, workbench only works with 2 components.  If
                     }
                     else if (player.holdingName == swordRecipe.Item1 && player.holdingState == swordRecipe.Item2 && holdingName == swordRecipe.Item3 && holdingState == swordRecipe.Item4)
                     {
-                        player.holdingName = "sword";
+                        player.holdingName = "Sword";
                         player.holdingState = HoldingState.finished;
                         holdingState = HoldingState.unrefined;
                         holdingName = "";
@@ -75,7 +75,7 @@ public class Workbench : Tile//NOTE, workbench only works with 2 components.  If
                     }
                     else if (holdingName == swordRecipe.Item1 && holdingState == swordRecipe.Item2 && player.holdingName == swordRecipe.Item3 && player.holdingState == swordRecipe.Item4)
                     {
-                        player.holdingName = "sword";
+                        player.holdingName = "Sword";
                         player.holdingState = HoldingState.finished;
                         holdingState = HoldingState.unrefined;
                         holdingName = "";
@@ -84,7 +84,7 @@ public class Workbench : Tile//NOTE, workbench only works with 2 components.  If
                     }
                     else if (player.holdingName == wandRecipe.Item1 && player.holdingState == wandRecipe.Item2 && holdingName == wandRecipe.Item3 && holdingState == wandRecipe.Item4)
                     {
-                        player.holdingName = "wand";
+                        player.holdingName = "Wand";
                         player.holdingState = HoldingState.finished;
                         holdingState = HoldingState.unrefined;
                         holdingName = "";
@@ -93,7 +93,7 @@ public class Workbench : Tile//NOTE, workbench only works with 2 components.  If
                     }
                     else if (holdingName == wandRecipe.Item1 && holdingState == wandRecipe.Item2 && player.holdingName == wandRecipe.Item3 && player.holdingState == wandRecipe.Item4)
                     {
-                        player.holdingName = "wand";
+                        player.holdingName = "Wand";
                         player.holdingState = HoldingState.finished;
                         holdingState = HoldingState.unrefined;
                         holdingName = "";
@@ -102,7 +102,7 @@ public class Workbench : Tile//NOTE, workbench only works with 2 components.  If
                     }
                     else if (player.holdingName == boatRecipe.Item1 && player.holdingState == boatRecipe.Item2 && holdingName == boatRecipe.Item3 && holdingState == boatRecipe.Item4)
                     {
-                        player.holdingName = "boat";
+                        player.holdingName = "Boat";
                         player.holdingState = HoldingState.finished;
                         holdingState = HoldingState.unrefined;
                         holdingName = "";
@@ -111,7 +111,7 @@ public class Workbench : Tile//NOTE, workbench only works with 2 components.  If
                     }
                     else if (holdingName == boatRecipe.Item1 && holdingState == boatRecipe.Item2 && player.holdingName == boatRecipe.Item3 && player.holdingState == boatRecipe.Item4)
                     {
-                        player.holdingName = "boat";
+                        player.holdingName = "Boat";
                         player.holdingState = HoldingState.finished;
                         holdingState = HoldingState.unrefined;
                         holdingName = "";
