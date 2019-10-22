@@ -1,16 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class Scenemanage : MonoBehaviour { 
-    // Start is called before the first frame update
-    void Start() {
-        
+public class Scenemanage : MonoBehaviour {
+    //  Loads the main game scene
+    public void LoadGame() {
+        SceneManager.LoadScene("TheCOolOurScene");
     }
 
-    // Update is called once per frame
-    void Update() {
-        
+    public void QuitGame() {
+        Debug.Log("Game Closing!");
+        Application.Quit();
     }
 }
