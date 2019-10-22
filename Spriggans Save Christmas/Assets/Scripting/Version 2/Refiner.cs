@@ -73,23 +73,26 @@ public class Refiner : Tile
     {
         while (isHolding && player.holdingState != HoldingState.state3)
         {
-            yield return new WaitForSeconds(intervalTime);
-            if (!removed)
+            if (PauseMenu.paused == false)
             {
-                switch (holdingState)
+                yield return new WaitForSeconds(intervalTime);
+                if (!removed)
                 {
-                    case HoldingState.unrefined:
-                        holdingState = HoldingState.state1;
-                        spriteRenderer.color = new Color(spriteRenderer.color.r - 0.2f, spriteRenderer.color.g - 0.2f, spriteRenderer.color.b - 0.2f, spriteRenderer.color.a);
-                        break;
-                    case HoldingState.state1:
-                        holdingState = HoldingState.state2;
-                        spriteRenderer.color = new Color(spriteRenderer.color.r - 0.2f, spriteRenderer.color.g - 0.2f, spriteRenderer.color.b - 0.2f, spriteRenderer.color.a);
-                        break;
-                    case HoldingState.state2:
-                        holdingState = HoldingState.state3;
-                        spriteRenderer.color = new Color(spriteRenderer.color.r - 0.2f, spriteRenderer.color.g - 0.2f, spriteRenderer.color.b - 0.2f, spriteRenderer.color.a);
-                        break;
+                    switch (holdingState)
+                    {
+                        case HoldingState.unrefined:
+                            holdingState = HoldingState.state1;
+                            spriteRenderer.color = new Color(spriteRenderer.color.r - 0.2f, spriteRenderer.color.g - 0.2f, spriteRenderer.color.b - 0.2f, spriteRenderer.color.a);
+                            break;
+                        case HoldingState.state1:
+                            holdingState = HoldingState.state2;
+                            spriteRenderer.color = new Color(spriteRenderer.color.r - 0.2f, spriteRenderer.color.g - 0.2f, spriteRenderer.color.b - 0.2f, spriteRenderer.color.a);
+                            break;
+                        case HoldingState.state2:
+                            holdingState = HoldingState.state3;
+                            spriteRenderer.color = new Color(spriteRenderer.color.r - 0.2f, spriteRenderer.color.g - 0.2f, spriteRenderer.color.b - 0.2f, spriteRenderer.color.a);
+                            break;
+                    }
                 }
             }
         }
