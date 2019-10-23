@@ -17,4 +17,9 @@ public class Scenemanage : MonoBehaviour {
         Debug.Log("Game Closing!");
         Application.Quit();
     }
+
+    public void Instructions()
+    {
+        SceneManager.LoadScene("Pause");
+    }
 }
