@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class UIManager : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class UIManager : MonoBehaviour
 
     public Sprite[] sprites;
 
+    TextMeshProUGUI holdingText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +34,8 @@ public class UIManager : MonoBehaviour
 
         holdingIndicator = GameObject.Find("Holding Indicator");
         holdingIndicatorSR = GameObject.Find("Holding Indicator").GetComponent<SpriteRenderer>();
+
+        holdingText = GameObject.Find("Player Holding UI").GetComponentInChildren<TextMeshProUGUI>(); // get the TextMesh Pro UGUI
     }
 
     // Update is called once per frame
@@ -62,16 +67,20 @@ public class UIManager : MonoBehaviour
                 {
                     case HoldingState.unrefined:
                         holdingIndicatorSR.sprite = sprites[4]; // changes sprite to WoodRough
+                        holdingText.SetText("Rough Wood");
                         break;
                     case HoldingState.state1:
                         holdingIndicatorSR.sprite = sprites[5]; // changes sprite to WoodLarge
+                        holdingText.SetText("Large Wood");
                         break;
                     case HoldingState.state2:
                         //Debug.Log("Wood is unrefined");
                         holdingIndicatorSR.sprite = sprites[6]; // changes sprite to WoodMedium
+                        holdingText.SetText("Medium Wood");
                         break;
                     case HoldingState.state3:
                         holdingIndicatorSR.sprite = sprites[7]; // changes sprite to WoodSmall
+                        holdingText.SetText("Small Wood");
                         break;
                 }
             }
@@ -82,16 +91,20 @@ public class UIManager : MonoBehaviour
                 {
                     case HoldingState.unrefined:
                         holdingIndicatorSR.sprite = sprites[8]; // changes sprite to ClothRough
+                        holdingText.SetText("Rough Cloth");
                         break;
                     case HoldingState.state1:
                         holdingIndicatorSR.sprite = sprites[11]; // changes sprite to ClothSmall
+                        holdingText.SetText("Small Cloth");
                         break;
                     case HoldingState.state2:
                         //Debug.Log("Wood is unrefined");
                         holdingIndicatorSR.sprite = sprites[10]; // changes sprite to ClothMedium
+                        holdingText.SetText("Medium Cloth");
                         break;
                     case HoldingState.state3:
                         holdingIndicatorSR.sprite = sprites[9]; // changes sprite to ClothLarge
+                        holdingText.SetText("Large Cloth");
                         break;
                 }
             }
@@ -99,35 +112,40 @@ public class UIManager : MonoBehaviour
             {
                 //Debug.Log("Player is holding Coal");
                 holdingIndicatorSR.sprite = sprites[12]; // changes sprite to Coal
-
+                holdingText.SetText("Coal");
             }
 
             else if(playerHoldingName == "Boat")    // if the player is holding Boat
             {
                 //Debug.Log("Player is holding Boat");
                 holdingIndicatorSR.sprite = sprites[0]; // change sprite to Boat
+                holdingText.SetText("Boat");
             }
 
             else if (playerHoldingName == "Dragon")    // if the player is holding Dragon
             {
                 //Debug.Log("Player is holding Dragon");
                 holdingIndicatorSR.sprite = sprites[1]; // change sprite to Dragon
+                holdingText.SetText("Dragon");
             }
 
             else if (playerHoldingName == "Sword")    // if the player is holding Sword
             {
                 //Debug.Log("Player is holding Sword");
                 holdingIndicatorSR.sprite = sprites[2]; // change sprite to Sword
+                holdingText.SetText("Sword");
             }
 
             else if (playerHoldingName == "Wand")    // if the player is holding Wand
             {
                 //Debug.Log("Player is holding Wand");
                 holdingIndicatorSR.sprite = sprites[3]; // change sprite to Wand
+                holdingText.SetText("Wand");
             }
             else
             {
                 holdingIndicatorSR.sprite = null;
+                holdingText.SetText("Nothing");
             }
         }
     }
