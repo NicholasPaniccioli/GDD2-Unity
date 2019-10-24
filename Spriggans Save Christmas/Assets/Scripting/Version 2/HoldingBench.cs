@@ -34,7 +34,7 @@ public class HoldingBench : Tile
             indicator.AddComponent<SpriteRenderer>();
             uiManager.ChangeHoldingIndicator(indicator.GetComponent<SpriteRenderer>());
             indicator.transform.parent = gameObject.transform;
-            indicator.transform.localPosition = Vector3.zero;
+            indicator.transform.localPosition = new Vector3(0,0,-0.01f);
 
             return true;
         }
