@@ -78,30 +78,30 @@ public class SantasSack : Tile
             {
                 if(toyName == "Boat")
                 {
-                    listBoat.SetActive(false);
+                    listBoat.SetActive(false);  // remove Boat sprite from Toy List UI
                 }
                 if (toyName == "Dragon")
                 {
-                    listDragon.SetActive(false);
+                    listDragon.SetActive(false);    // remove Dragon sprite from Toy List UI
                 }
                 if (toyName == "Sword")
                 {
-                    listSword.SetActive(false);
+                    listSword.SetActive(false);     // remove Sword sprite from Toy List UI
                 }
                 if (toyName == "Wand")
                 {
-                    listWand.SetActive(false);
+                    listWand.SetActive(false);      // remove Wand sprite from Toy List UI
                 }
                 if (toyName == "Coal")
                 {
-                    listCoal.SetActive(false);
+                    listCoal.SetActive(false);      // remove Coal sprite from Toy List UI
                 }
-                Debug.Log("Successfully removed " + toyList[i] + " from Toy List.");
+                Debug.Log("Successfully removed " + toyList[i] + " from Toy List.");    // output success message to console, specifying what was removed
                 toyList.RemoveAt(i);    // remove toy from toyList
                 return true;            // return true
             }
         }
-        Debug.Log("Did not remove " + toyName + " from Toy List.");
+        Debug.Log("Did not remove " + toyName + " from Toy List."); // output failure message to console, specifying what was not removed
         return false;   // if toy is not in toyList, do nothing to toyList and return false
     }
 }
