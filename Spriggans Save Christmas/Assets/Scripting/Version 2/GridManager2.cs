@@ -89,7 +89,7 @@ public class GridManager2 : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 Vector3 interactTile = playerObject.transform.position + playerFacing;
-                if (grid[(int)interactTile.x, (int)interactTile.y] != null)
+                if (interactTile.x <= grid.GetLength(0) - 1 && interactTile.x >= 0 && interactTile.y <= grid.GetLength(1) - 1 && interactTile.y >= 0 && grid[(int)interactTile.x, (int)interactTile.y] != null)
                 {
                     grid[(int)interactTile.x, (int)interactTile.y].GetComponent<Tile>().Interact(playerObject.GetComponent<Player>());
                 }
