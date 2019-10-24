@@ -55,7 +55,7 @@ public class UIManager : MonoBehaviour
     }
 
     // Update the holding indicator in the top right
-    void ChangeHoldingIndicator(SpriteRenderer holdingIndicatorSR)
+    public void ChangeHoldingIndicator(SpriteRenderer holdingIndicatorSR)
     {
         for(int i = 0; i < sprites.Length; i++)
         {
