@@ -24,7 +24,7 @@ public class Refiner : Tile
         progressBar = new GameObject("Progress Sprite");
         progressBar.AddComponent<SpriteRenderer>();
         progressBar.transform.parent = gameObject.transform;
-        progressBar.transform.localPosition = new Vector3(0, 0.2f, -0.01f);
+        progressBar.transform.localPosition = new Vector3(0, 0.4f, -0.01f);
         progressBar.GetComponent<SpriteRenderer>().sprite = progressSprites[0];
     }
 
@@ -47,6 +47,7 @@ public class Refiner : Tile
         else
         {
             progressBar.GetComponent<SpriteRenderer>().sprite = progressSprites[0];
+            progressBar.SetActive(false);
             fakeTime = 30;
         }
     }
@@ -91,6 +92,7 @@ public class Refiner : Tile
     {
         while (isHolding && player.holdingState != HoldingState.state3)
         {
+            progressBar.SetActive(true);
             if (PauseMenu.paused == false)
             {
                 yield return new WaitForSeconds(intervalTime);
