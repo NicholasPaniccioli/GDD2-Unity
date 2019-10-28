@@ -5,11 +5,14 @@ using UnityEngine;
 public class Refiner : Tile
 {
     public float intervalTime;
+    public int fakeTime = 0;
     public string neededItem;
     public Sprite[] sprites = new Sprite[3];
+    public Sprite[] progressSprites = new Sprite[31];
     private int currentSprite;
     private bool removed;
     private SpriteRenderer spriteRenderer;
+    private GameObject progressBar;
 
     // Start is called before the first frame update
     void Start()
@@ -17,11 +20,18 @@ public class Refiner : Tile
         currentSprite = 0;
         spriteRenderer = GetComponent<SpriteRenderer>();
         removed = true;
+
+        progressBar = new GameObject("Progress Sprite");
+        progressBar.AddComponent<SpriteRenderer>();
+        progressBar.transform.parent = gameObject.transform;
+        progressBar.transform.localPosition = new Vector3(0, 0.2f, -0.01f);
+        progressBar.GetComponent<SpriteRenderer>().sprite = progressSprites[0];
     }
 
     // Update is called once per frame
     void Update()
     {
+        ProgressBar();
         if (isHolding)
         {
             if (currentSprite >= 12)
@@ -33,6 +43,11 @@ public class Refiner : Tile
                 currentSprite++;
             }
             gameObject.GetComponent<SpriteRenderer>().sprite = sprites[currentSprite / 6];
+        }
+        else
+        {
+            progressBar.GetComponent<SpriteRenderer>().sprite = progressSprites[0];
+            fakeTime = 30;
         }
     }
 
@@ -95,6 +110,38 @@ public class Refiner : Tile
                     }
                 }
             }
+        }
+    }
+
+    // show/change progress bar
+    void ProgressBar()
+    {
+        if (isHolding)
+        {
+            fakeTime++;
+            switch (holdingState)
+            {
+                case HoldingState.unrefined:
+                    progressBar.GetComponent<SpriteRenderer>().sprite = progressSprites[(fakeTime/30)];
+                    break;
+                case HoldingState.state1:
+                    progressBar.GetComponent<SpriteRenderer>().sprite = progressSprites[(fakeTime / 30) + 10];
+                    break;
+                case HoldingState.state2:
+                    progressBar.GetComponent<SpriteRenderer>().sprite = progressSprites[(fakeTime / 30) + 20];
+                    break;
+                default:
+                    progressBar.GetComponent<SpriteRenderer>().sprite = progressSprites[0];
+                    break;
+            }
+            if(fakeTime >= 300)
+            {
+                fakeTime = 30;
+            }
+        }
+        else
+        {
+            fakeTime = 30;
         }
     }
 }
