@@ -61,7 +61,10 @@ public class Refiner : Tile
             isHolding = true;
             player.isHolding = false;
             player.holdingName = "";
-            removed = false;
+            if (holdingState == HoldingState.unrefined)
+            {
+                removed = false;
+            }
             spriteRenderer.color = new Color(Color.white.r - (float)(0.2*(int)holdingState), Color.white.g - (float)(0.2 * (int)holdingState), Color.white.b - (float)(0.2 * (int)holdingState), Color.white.a);
             StartCoroutine(LoseTime(player));
             return true;
@@ -108,6 +111,11 @@ public class Refiner : Tile
                             spriteRenderer.color = new Color(spriteRenderer.color.r - 0.2f, spriteRenderer.color.g - 0.2f, spriteRenderer.color.b - 0.2f, spriteRenderer.color.a);
                             break;
                     }
+                }
+                else
+                {
+                    removed = false;
+                    yield break;
                 }
             }
         }

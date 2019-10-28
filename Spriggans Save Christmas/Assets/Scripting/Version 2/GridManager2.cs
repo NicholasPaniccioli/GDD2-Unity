@@ -14,16 +14,18 @@ public class GridManager2 : MonoBehaviour
     public Sprite spriteRight;
     public Sprite spriteLeft;
     public float moveDelay;
+    public int gridWidth;
+    public int grigHeight;
 
     // Start is called before the first frame update
     void Start()
     {
-        grid = new GameObject[20,10];
+        grid = new GameObject[gridWidth, grigHeight];
         interactObjects = GameObject.FindGameObjectsWithTag("Interactable");
         for (int x = 0; x < interactObjects.Length; x++)
         {
             //occupies the grid with objects
-            grid[(int)interactObjects[x].transform.position.x,(int)interactObjects[x].transform.position.y] = interactObjects[x];
+            grid[Mathf.RoundToInt(interactObjects[x].transform.position.x),Mathf.RoundToInt(interactObjects[x].transform.position.y)] = interactObjects[x];
         }
         grid[(int)playerObject.transform.position.x, (int)playerObject.transform.position.y] = playerObject;
         playerScript = playerObject.GetComponent<Player>();
