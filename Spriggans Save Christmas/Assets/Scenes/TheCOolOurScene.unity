@@ -4094,6 +4094,8 @@ MonoBehaviour:
   spriteRight: {fileID: 21300000, guid: 3a30fde59bc14e24da4851bd98aabc95, type: 3}
   spriteLeft: {fileID: 21300000, guid: e94f1ac651d553f4b98ab36d641ce69c, type: 3}
   moveDelay: 0
+  gridWidth: 20
+  grigHeight: 10
 --- !u!4 &950030986
 Transform:
   m_ObjectHideFlags: 0
