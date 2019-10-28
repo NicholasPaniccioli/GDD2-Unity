@@ -23,7 +23,7 @@ public class GridManager2 : MonoBehaviour
         for (int x = 0; x < interactObjects.Length; x++)
         {
             //occupies the grid with objects
-            grid[(int)interactObjects[x].transform.position.x,(int)interactObjects[x].transform.position.y] = interactObjects[x];
+            grid[Mathf.RoundToInt(interactObjects[x].transform.position.x),Mathf.RoundToInt(interactObjects[x].transform.position.y)] = interactObjects[x];
         }
         grid[(int)playerObject.transform.position.x, (int)playerObject.transform.position.y] = playerObject;
         playerScript = playerObject.GetComponent<Player>();
