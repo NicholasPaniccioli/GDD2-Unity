@@ -28,8 +28,8 @@ public class fixCamera : MonoBehaviour
             //This enables the orthographic mode
             m_OrthographicCamera.orthographic = true;
             //Set the size of the viewing volume you'd like the orthographic Camera to pick up (5)
-            m_OrthographicCamera.orthographicSize = 5.5f;
-            Camera.main.aspect =7.0f/3.0f;
+            m_OrthographicCamera.orthographicSize = 6f;
+            Camera.main.aspect =6.49f/3.0f;
             //Set the orthographic Camera Viewport size and position
             m_OrthographicCamera.rect = new Rect(m_ViewPositionX, m_ViewPositionY, m_ViewWidth, m_ViewHeight);
         }
