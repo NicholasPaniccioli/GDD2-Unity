@@ -146,7 +146,7 @@ public class Refiner : Tile
 
     IEnumerator ProgressBar(Player player)
     {
-        while (isHolding && fakeTime != progressSprites.Length-1)
+        while (isHolding)
         {
             progressBar.SetActive(true);
             if (PauseMenu.paused == false)
@@ -154,6 +154,7 @@ public class Refiner : Tile
                 yield return new WaitForSeconds(intervalTime/10);
                 if (!removed)
                 {
+                    if (fakeTime <= progressSprites.Length - 2)
                     fakeTime++;
                     progressBar.GetComponent<SpriteRenderer>().sprite = progressSprites[fakeTime];
                 }
