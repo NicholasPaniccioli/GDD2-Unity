@@ -47,7 +47,10 @@ public class SantasSack : Tile
     // Update is called once per frame
     void Update()
     {
-        
+        if (toyList.Count == 0)
+        {
+            GameObject.Find("Timer").GetComponent<Timer>().winGame = true;
+        }
     }
 
     public override bool Interact(Player player)

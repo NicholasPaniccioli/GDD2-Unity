@@ -5,7 +5,7 @@ using UnityEngine;
 public class Refiner : Tile
 {
     public float intervalTime;
-    public int fakeTime = 0;
+    public int fakeTime = 1;
     public string neededItem;
     public Sprite[] sprites = new Sprite[3];
     public Sprite[] progressSprites = new Sprite[31];
@@ -31,7 +31,7 @@ public class Refiner : Tile
     // Update is called once per frame
     void Update()
     {
-        ProgressBar();
+        //ProgressBar();
         if (isHolding)
         {
             if (currentSprite >= 12)
@@ -46,9 +46,8 @@ public class Refiner : Tile
         }
         else
         {
-            progressBar.GetComponent<SpriteRenderer>().sprite = progressSprites[0];
             progressBar.SetActive(false);
-            fakeTime = 30;
+            fakeTime = 1;
         }
     }
 
@@ -66,8 +65,30 @@ public class Refiner : Tile
             {
                 removed = false;
             }
+            removed = false;
+            switch (holdingState)
+            {
+                case HoldingState.unrefined:
+                    progressBar.GetComponent<SpriteRenderer>().sprite = progressSprites[1];
+                    fakeTime = 1;
+                    break;
+                case HoldingState.state1:
+                    progressBar.GetComponent<SpriteRenderer>().sprite = progressSprites[11];
+                    fakeTime = 11;
+                    break;
+                case HoldingState.state2:
+                    progressBar.GetComponent<SpriteRenderer>().sprite = progressSprites[21];
+                    fakeTime = 21;
+                    break;
+                case HoldingState.state3:
+                    progressBar.GetComponent<SpriteRenderer>().sprite = progressSprites[30];
+                    progressBar.SetActive(true);
+                    fakeTime = 30;
+                    break;
+            }
             spriteRenderer.color = new Color(Color.white.r - (float)(0.2*(int)holdingState), Color.white.g - (float)(0.2 * (int)holdingState), Color.white.b - (float)(0.2 * (int)holdingState), Color.white.a);
             StartCoroutine(LoseTime(player));
+            StartCoroutine(ProgressBar(player));
             return true;
         }
         else if (isHolding && !player.isHolding)
@@ -123,35 +144,25 @@ public class Refiner : Tile
         }
     }
 
-    // show/change progress bar
-    void ProgressBar()
+    IEnumerator ProgressBar(Player player)
     {
-        if (isHolding)
+        while (isHolding)
         {
-            fakeTime++;
-            switch (holdingState)
+            progressBar.SetActive(true);
+            if (PauseMenu.paused == false)
             {
-                case HoldingState.unrefined:
-                    progressBar.GetComponent<SpriteRenderer>().sprite = progressSprites[(fakeTime/30)];
-                    break;
-                case HoldingState.state1:
-                    progressBar.GetComponent<SpriteRenderer>().sprite = progressSprites[(fakeTime / 30) + 10];
-                    break;
-                case HoldingState.state2:
-                    progressBar.GetComponent<SpriteRenderer>().sprite = progressSprites[(fakeTime / 30) + 20];
-                    break;
-                default:
-                    progressBar.GetComponent<SpriteRenderer>().sprite = progressSprites[0];
-                    break;
+                yield return new WaitForSeconds(intervalTime/10);
+                if (!removed)
+                {
+                    if (fakeTime <= progressSprites.Length - 2)
+                    fakeTime++;
+                    progressBar.GetComponent<SpriteRenderer>().sprite = progressSprites[fakeTime];
+                }
+                else
+                {
+                    yield break;
+                }
             }
-            if(fakeTime >= 300)
-            {
-                fakeTime = 30;
-            }
-        }
-        else
-        {
-            fakeTime = 30;
         }
     }
 }
