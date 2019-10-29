@@ -56,6 +56,7 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("StartScreen");
+        paused = false;
     }
 
     //When pressed closes the application
@@ -63,5 +64,14 @@ public class PauseMenu : MonoBehaviour
     {
         Debug.Log("Quiting game!");
         Application.Quit();
+    }
+
+
+    //when pressed the player will skip the tutorial and go to the actual game.
+    public void Skip()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("TheCOolOurScene");
+        paused = false;
     }
 }
