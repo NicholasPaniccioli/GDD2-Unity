@@ -9,6 +9,7 @@ public class Refiner : Tile
     public string neededItem;
     public Sprite[] sprites = new Sprite[3];
     public Sprite[] progressSprites = new Sprite[31];
+    private bool isRunning;
     private int currentSprite;
     private bool removed;
     private SpriteRenderer spriteRenderer;
@@ -20,6 +21,7 @@ public class Refiner : Tile
         currentSprite = 0;
         spriteRenderer = GetComponent<SpriteRenderer>();
         removed = true;
+        isRunning = false;
 
         progressBar = new GameObject("Progress Sprite");
         progressBar.AddComponent<SpriteRenderer>();
@@ -87,8 +89,11 @@ public class Refiner : Tile
                     break;
             }
             spriteRenderer.color = new Color(Color.white.r - (float)(0.2*(int)holdingState), Color.white.g - (float)(0.2 * (int)holdingState), Color.white.b - (float)(0.2 * (int)holdingState), Color.white.a);
-            StartCoroutine(LoseTime(player));
-            StartCoroutine(ProgressBar(player));
+            if (!isRunning)
+            {
+                StartCoroutine(LoseTime(player));
+                StartCoroutine(ProgressBar(player));
+            }
             return true;
         }
         else if (isHolding && !player.isHolding)
@@ -111,6 +116,7 @@ public class Refiner : Tile
     /// <returns></returns>
     IEnumerator LoseTime(Player player)
     {
+        isRunning = true;
         while (isHolding && player.holdingState != HoldingState.state3)
         {
             progressBar.SetActive(true);
@@ -138,10 +144,12 @@ public class Refiner : Tile
                 else
                 {
                     removed = false;
+                    isRunning = false;
                     yield break;
                 }
             }
         }
+        isRunning = false;
     }
 
     IEnumerator ProgressBar(Player player)
