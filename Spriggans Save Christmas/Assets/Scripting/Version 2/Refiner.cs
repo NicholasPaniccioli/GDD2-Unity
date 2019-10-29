@@ -13,12 +13,14 @@ public class Refiner : Tile
     private bool refinerRunning;
     private int currentSprite;
     private bool removed;
+    private SpriteRenderer spriteRenderer;
     private GameObject progressBar;
 
     // Start is called before the first frame update
     void Start()
     {
         currentSprite = 0;
+        spriteRenderer = GetComponent<SpriteRenderer>();
         removed = true;
         progreesRunning = false;
         refinerRunning = false;
@@ -88,6 +90,7 @@ public class Refiner : Tile
                     fakeTime = 30;
                     break;
             }
+            spriteRenderer.color = new Color(Color.white.r - (float)(0.2 * (int)holdingState), Color.white.g - (float)(0.2 * (int)holdingState), Color.white.b - (float)(0.2 * (int)holdingState), Color.white.a);
             if (!refinerRunning)
             {
                 StartCoroutine(LoseTime(player));
@@ -106,6 +109,7 @@ public class Refiner : Tile
             player.holdingName = holdingName;
             isHolding = false;
             holdingName = "";
+            spriteRenderer.color = Color.white;
             return true;
         }
         else return false;
@@ -130,12 +134,15 @@ public class Refiner : Tile
                     {
                         case HoldingState.unrefined:
                             holdingState = HoldingState.state1;
+                            spriteRenderer.color = new Color(spriteRenderer.color.r - 0.2f, spriteRenderer.color.g - 0.2f, spriteRenderer.color.b - 0.2f, spriteRenderer.color.a);
                             break;
                         case HoldingState.state1:
                             holdingState = HoldingState.state2;
+                            spriteRenderer.color = new Color(spriteRenderer.color.r - 0.2f, spriteRenderer.color.g - 0.2f, spriteRenderer.color.b - 0.2f, spriteRenderer.color.a);
                             break;
                         case HoldingState.state2:
                             holdingState = HoldingState.state3;
+                            spriteRenderer.color = new Color(spriteRenderer.color.r - 0.2f, spriteRenderer.color.g - 0.2f, spriteRenderer.color.b - 0.2f, spriteRenderer.color.a);
                             break;
                     }
                 }
