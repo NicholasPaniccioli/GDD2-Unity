@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class TutorialDialogue : MonoBehaviour
 {
     public Text nameText;
-    public Text dialogueText;
+    public TextMesh dialogueText;
 
     private Queue<string> sentences;
 
