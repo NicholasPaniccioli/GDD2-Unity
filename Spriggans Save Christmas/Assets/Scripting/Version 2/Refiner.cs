@@ -9,19 +9,19 @@ public class Refiner : Tile
     public string neededItem;
     public Sprite[] sprites = new Sprite[3];
     public Sprite[] progressSprites = new Sprite[31];
-    private bool isRunning;
+    private bool progreesRunning;
+    private bool refinerRunning;
     private int currentSprite;
     private bool removed;
-    private SpriteRenderer spriteRenderer;
     private GameObject progressBar;
 
     // Start is called before the first frame update
     void Start()
     {
         currentSprite = 0;
-        spriteRenderer = GetComponent<SpriteRenderer>();
         removed = true;
-        isRunning = false;
+        progreesRunning = false;
+        refinerRunning = false;
 
         progressBar = new GameObject("Progress Sprite");
         progressBar.AddComponent<SpriteRenderer>();
@@ -88,10 +88,12 @@ public class Refiner : Tile
                     fakeTime = 30;
                     break;
             }
-            spriteRenderer.color = new Color(Color.white.r - (float)(0.2*(int)holdingState), Color.white.g - (float)(0.2 * (int)holdingState), Color.white.b - (float)(0.2 * (int)holdingState), Color.white.a);
-            if (!isRunning)
+            if (!refinerRunning)
             {
                 StartCoroutine(LoseTime(player));
+            }
+            if(!progreesRunning)
+            {
                 StartCoroutine(ProgressBar(player));
             }
             return true;
@@ -104,7 +106,6 @@ public class Refiner : Tile
             player.holdingName = holdingName;
             isHolding = false;
             holdingName = "";
-            spriteRenderer.color = Color.white;
             return true;
         }
         else return false;
@@ -116,7 +117,7 @@ public class Refiner : Tile
     /// <returns></returns>
     IEnumerator LoseTime(Player player)
     {
-        isRunning = true;
+        refinerRunning = true;
         while (isHolding && player.holdingState != HoldingState.state3)
         {
             progressBar.SetActive(true);
@@ -129,31 +130,29 @@ public class Refiner : Tile
                     {
                         case HoldingState.unrefined:
                             holdingState = HoldingState.state1;
-                            spriteRenderer.color = new Color(spriteRenderer.color.r - 0.2f, spriteRenderer.color.g - 0.2f, spriteRenderer.color.b - 0.2f, spriteRenderer.color.a);
                             break;
                         case HoldingState.state1:
                             holdingState = HoldingState.state2;
-                            spriteRenderer.color = new Color(spriteRenderer.color.r - 0.2f, spriteRenderer.color.g - 0.2f, spriteRenderer.color.b - 0.2f, spriteRenderer.color.a);
                             break;
                         case HoldingState.state2:
                             holdingState = HoldingState.state3;
-                            spriteRenderer.color = new Color(spriteRenderer.color.r - 0.2f, spriteRenderer.color.g - 0.2f, spriteRenderer.color.b - 0.2f, spriteRenderer.color.a);
                             break;
                     }
                 }
                 else
                 {
                     removed = false;
-                    isRunning = false;
+                    refinerRunning = false;
                     yield break;
                 }
             }
         }
-        isRunning = false;
+        refinerRunning = false;
     }
 
     IEnumerator ProgressBar(Player player)
     {
+        progreesRunning = true;
         while (isHolding)
         {
             progressBar.SetActive(true);
@@ -168,9 +167,11 @@ public class Refiner : Tile
                 }
                 else
                 {
+                    progreesRunning = false;
                     yield break;
                 }
             }
         }
+        progreesRunning = false;
     }
 }
