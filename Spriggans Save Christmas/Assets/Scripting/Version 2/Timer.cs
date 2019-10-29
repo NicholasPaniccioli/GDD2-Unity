@@ -7,6 +7,7 @@ public class Timer : MonoBehaviour
 {
     public int timeLeft = 120;
     public Text countDown;
+    public bool winGame;
 
     // Start is called before the first frame update
     void Start()
@@ -14,6 +15,7 @@ public class Timer : MonoBehaviour
         //Start thread for Timer
         StartCoroutine("LoseTime");
         Time.timeScale = 1;
+        winGame = false;
     }
 
     // Update is called once per frame
@@ -30,7 +32,12 @@ public class Timer : MonoBehaviour
         while (timeLeft > 0)
         {
             yield return new WaitForSeconds(1);
+            if (winGame)
+            {
+                //transition to win screen
+            }
             timeLeft--;
         }
+        //Transition to loss screen
     }
 }
