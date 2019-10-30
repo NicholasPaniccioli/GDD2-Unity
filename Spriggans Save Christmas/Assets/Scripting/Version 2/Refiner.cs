@@ -69,7 +69,6 @@ public class Refiner : Tile
             {
                 removed = false;
             }
-            removed = false;
             switch (holdingState)
             {
                 case HoldingState.unrefined:
@@ -91,13 +90,17 @@ public class Refiner : Tile
                     break;
             }
             spriteRenderer.color = new Color(Color.white.r - (float)(0.2 * (int)holdingState), Color.white.g - (float)(0.2 * (int)holdingState), Color.white.b - (float)(0.2 * (int)holdingState), Color.white.a);
-            if (!refinerRunning)
+            if (!refinerRunning || removed)
             {
                 StartCoroutine(LoseTime(player));
             }
-            if(!progreesRunning)
+            if (removed)
             {
-                StartCoroutine(ProgressBar(player));
+                StartCoroutine(ProgressBar(player, true));
+            }
+            else if (!progreesRunning)
+            {
+                StartCoroutine(ProgressBar(player, false));
             }
             return true;
         }
@@ -157,7 +160,7 @@ public class Refiner : Tile
         refinerRunning = false;
     }
 
-    IEnumerator ProgressBar(Player player)
+    IEnumerator ProgressBar(Player player, bool flag)
     {
         progreesRunning = true;
         while (isHolding)
@@ -166,7 +169,7 @@ public class Refiner : Tile
             if (PauseMenu.paused == false)
             {
                 yield return new WaitForSeconds(intervalTime/10);
-                if (!removed)
+                if (!removed || flag)
                 {
                     if (fakeTime <= progressSprites.Length - 2)
                     fakeTime++;
