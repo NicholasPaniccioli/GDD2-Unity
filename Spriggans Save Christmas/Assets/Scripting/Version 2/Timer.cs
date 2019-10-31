@@ -40,14 +40,20 @@ public class Timer : MonoBehaviour
             yield return new WaitForSeconds(1);
             if (winGame)    // if the player wins
             {
+                GameObject.Find("SuccessSound").GetComponent<AudioSource>().Play();
                 //transition to win screen
                 GameOver(); // display Game Over screen
                 Debug.Log("You win!");  // output a message to the console indicating success
+
             }
-            timeLeft--; // decrease the amount of time left
+            else
+            {
+                timeLeft--; // decrease the amount of time left
+            }
         }
         //Transition to loss screen
         loseGame = true;    // set lose game condition to true
+        GameObject.Find("FailSound").GetComponent<AudioSource>().Play();
         GameOver(); // display the game over screen
         Debug.Log("You lose! Christmas is ruined!");    // output a message to the console indicating loss
     }
