@@ -14,7 +14,6 @@ public enum State
 public class Resources : MonoBehaviour
 {
     // name for the resource
-    public string name;
 
     private State state;
     

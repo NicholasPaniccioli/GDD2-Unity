@@ -13,7 +13,6 @@ public class SantasSack : Tile
     GameObject listSword;
     GameObject listWand;
     GameObject listCoal;
-    [SerializeField]
     private AudioSource successSound;
 
     // default constructor for SantasSack
@@ -42,6 +41,7 @@ public class SantasSack : Tile
         listSword = GameObject.Find("List Sword");
         listWand = GameObject.Find("List Wand");
         listCoal = GameObject.Find("List Coal");
+        successSound = GameObject.Find("SuccessSound").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
