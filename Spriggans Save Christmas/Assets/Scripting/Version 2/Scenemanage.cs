@@ -10,7 +10,7 @@ public class Scenemanage : MonoBehaviour {
 
         Time.timeScale = 1f;
         PauseMenu.paused = false;
-        SceneManager.LoadScene("TheCOolOurScene");
+        SceneManager.LoadScene("FirstLevel");
     }
 
     public void QuitGame() {
