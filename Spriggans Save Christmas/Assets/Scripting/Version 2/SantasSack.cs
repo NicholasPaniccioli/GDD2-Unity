@@ -13,8 +13,8 @@ public class SantasSack : Tile
     GameObject listSword;
     GameObject listWand;
     GameObject listCoal;
-    
-
+    [SerializeField]
+    private AudioSource successSound;
 
     // default constructor for SantasSack
     public SantasSack()
@@ -99,6 +99,7 @@ public class SantasSack : Tile
                 {
                     listCoal.SetActive(false);      // remove Coal sprite from Toy List UI
                 }
+                successSound.Play();
                 Debug.Log("Successfully removed " + toyList[i] + " from Toy List.");    // output success message to console, specifying what was removed
                 toyList.RemoveAt(i);    // remove toy from toyList
                 return true;            // return true

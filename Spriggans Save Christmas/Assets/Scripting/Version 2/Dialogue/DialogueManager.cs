@@ -59,7 +59,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         //Goes to Continue-Text
-        if (coal.active == false && diaInd == 4)
+        if (coal.activeSelf == false && diaInd == 4)
         {
             dialogue[diaInd].SetActive(false);
             diaInd++;
