@@ -231,14 +231,15 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.99960893, y: 0.99960893, z: 0.99960893}
-  m_Children: []
+  m_Children:
+  - {fileID: 527698325}
   m_Father: {fileID: 1984847313}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -493.99997, y: 143.99998}
-  m_SizeDelta: {x: 247.4, y: 78.9}
+  m_AnchoredPosition: {x: -324, y: 121.19}
+  m_SizeDelta: {x: 262.5, y: 79.316}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &243616148
 MonoBehaviour:
@@ -261,7 +262,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: d3684d0a178d3d94e9879d13c9fa7d8f, type: 3}
+    m_Font: {fileID: 12800000, guid: bf2c69114c1914b44b98c5f1159746d1, type: 3}
     m_FontSize: 60
     m_FontStyle: 0
     m_BestFit: 0
@@ -294,7 +295,7 @@ GameObject:
   - component: {fileID: 527698327}
   - component: {fileID: 527698326}
   m_Layer: 5
-  m_Name: Main Title (2)
+  m_Name: Controls Paragraph
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -309,14 +310,14 @@ RectTransform:
   m_GameObject: {fileID: 527698324}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.99960893, y: 0.99960893, z: 0.99960893}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1984847313}
-  m_RootOrder: 3
+  m_Father: {fileID: 243616147}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -494, y: -129}
+  m_AnchoredPosition: {x: -0.000091552734, y: -273.1068}
   m_SizeDelta: {x: 660.7, y: 328.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &527698326
@@ -340,8 +341,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: d3684d0a178d3d94e9879d13c9fa7d8f, type: 3}
-    m_FontSize: 40
+    m_Font: {fileID: 12800000, guid: 75bf50b8bbb872d498166601d5e9625c, type: 3}
+    m_FontSize: 35
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -352,7 +353,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Use WASD or arrow keys for movement. Use E to pick up or place a material.
+  m_Text: "Use WASD or arrow keys for movement. \nUse E to pick up or place a material.
     \nPlace materials into their respective workbenches to process them."
 --- !u!222 &527698327
 CanvasRenderer:
@@ -392,7 +393,7 @@ RectTransform:
   m_LocalScale: {x: 0.99960893, y: 0.99960893, z: 0.99960893}
   m_Children: []
   m_Father: {fileID: 1984847313}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -420,7 +421,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: d3684d0a178d3d94e9879d13c9fa7d8f, type: 3}
+    m_Font: {fileID: 12800000, guid: bf2c69114c1914b44b98c5f1159746d1, type: 3}
     m_FontSize: 80
     m_FontStyle: 0
     m_BestFit: 0
@@ -519,7 +520,7 @@ GameObject:
   - component: {fileID: 926084928}
   - component: {fileID: 926084927}
   m_Layer: 5
-  m_Name: Main Title (3)
+  m_Name: Recipes Paragraph
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -534,14 +535,14 @@ RectTransform:
   m_GameObject: {fileID: 926084925}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.99960893, y: 0.99960893, z: 0.99960893}
+  m_LocalScale: {x: 0.9996089, y: 0.9996089, z: 0.9996089}
   m_Children: []
-  m_Father: {fileID: 1984847313}
-  m_RootOrder: 4
+  m_Father: {fileID: 1750321569}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 513, y: -93}
+  m_AnchoredPosition: {x: 0, y: -275}
   m_SizeDelta: {x: 826, y: 328.66}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &926084927
@@ -565,8 +566,8 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: d3684d0a178d3d94e9879d13c9fa7d8f, type: 3}
-    m_FontSize: 40
+    m_Font: {fileID: 12800000, guid: 75bf50b8bbb872d498166601d5e9625c, type: 3}
+    m_FontSize: 35
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -577,16 +578,17 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Put materials together on any table to craft a toy. The recipes are as
-    follows:
+  m_Text: 'Put materials together on any table to craft a toy.
 
-    Dragon - Wood(State1) + Cloth(State2)
+    The recipes are as follows:
 
-    Sword - Wood(State3) + Wood(State1)
+    Dragon - Large Wood + Medium Cloth
 
-    Wand - Wood(State3) + Cloth(State1)
+    Sword - Small Wood + Large Wood
 
-    Boat - Wood(State2) + Cloth(State3)'
+    Wand - Small Wood + Small Cloth
+
+    Boat - Medium Wood + Large Cloth'
 --- !u!222 &926084928
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -714,14 +716,15 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 926084926}
   m_Father: {fileID: 1984847313}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 513.00006, y: 150.99998}
-  m_SizeDelta: {x: 282.2, y: 93.7}
+  m_AnchoredPosition: {x: 301.9, y: 118.7}
+  m_SizeDelta: {x: 252, y: 84.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1750321570
 MonoBehaviour:
@@ -744,7 +747,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 12800000, guid: d3684d0a178d3d94e9879d13c9fa7d8f, type: 3}
+    m_Font: {fileID: 12800000, guid: bf2c69114c1914b44b98c5f1159746d1, type: 3}
     m_FontSize: 60
     m_FontStyle: 0
     m_BestFit: 0
@@ -857,11 +860,9 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 1750321569}
   - {fileID: 783683874}
+  - {fileID: 1750321569}
   - {fileID: 243616147}
-  - {fileID: 527698325}
-  - {fileID: 926084926}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
