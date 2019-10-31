@@ -49,7 +49,7 @@ public class SantasSack : Tile
     {
         if (toyList.Count == 0)
         {
-            GameObject.Find("Timer").GetComponent<Timer>().winGame = true;
+            Timer.winGame = true;
         }
     }
 

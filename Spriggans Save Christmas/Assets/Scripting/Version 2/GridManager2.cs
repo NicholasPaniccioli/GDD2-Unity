@@ -35,7 +35,7 @@ public class GridManager2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (PauseMenu.paused == false)
+        if (PauseMenu.paused == false && Timer.loseGame == false && Timer.winGame == false)
         {
             #region Player Movement
             if ((Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) && playerScript.canMove)   // if the user presses 'W' or the Up Arrow
