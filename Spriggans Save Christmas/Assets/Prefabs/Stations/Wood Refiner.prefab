@@ -96,7 +96,7 @@ MonoBehaviour:
   holdingState: 0
   isHolding: 0
   intervalTime: 5
-  deltaTime: 0
+  fakeTime: 1
   neededItem: Wood
   sprites:
   - {fileID: 21300000, guid: e9efdfa25fc8d4243872a65f95a539db, type: 3}
