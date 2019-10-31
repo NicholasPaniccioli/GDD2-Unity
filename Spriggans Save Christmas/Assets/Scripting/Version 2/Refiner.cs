@@ -125,7 +125,7 @@ public class Refiner : Tile
     IEnumerator LoseTime(Player player)
     {
         refinerRunning = true;
-        while (isHolding && player.holdingState != HoldingState.state3)
+        while (isHolding && holdingState != HoldingState.state3)
         {
             progressBar.SetActive(true);
             if (PauseMenu.paused == false)
