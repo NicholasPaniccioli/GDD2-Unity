@@ -81,7 +81,7 @@ public class DialogueManager : MonoBehaviour
         }
 
         //Goes to Santa-Text or Refiner Text
-        if(player.transform.position.y > 3 && diaInd == 3
+        if(player.transform.position.y > 3 && diaInd == 3 
             || refiner.GetComponent<Refiner>().holdingName == "Wood" && diaInd == 9)
         {
             if (diaInd == 3)
@@ -98,7 +98,7 @@ public class DialogueManager : MonoBehaviour
             }
         }
 
-        //Goes to Bench-Text
+        //Goes to continue or  Bench-Text
         if (coal.active == false && diaInd == 4
             || Input.GetKeyDown(KeyCode.Space) && diaInd == 10)
         {

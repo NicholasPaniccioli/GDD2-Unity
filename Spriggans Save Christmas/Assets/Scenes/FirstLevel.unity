@@ -4314,6 +4314,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 393c46d0ff78b434f9adfeb4e4ac3736, type: 3}
+--- !u!1 &1347203759 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2799581781218900424, guid: a0207d0368d1d584bae4901a7b2b0d37,
+    type: 3}
+  m_PrefabInstance: {fileID: 787640832}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1397694425 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4013315500767168377, guid: 393c46d0ff78b434f9adfeb4e4ac3736,
@@ -5817,9 +5823,9 @@ MonoBehaviour:
   - {fileID: 202931095}
   - {fileID: 264727814}
   coal: {fileID: 1869758274}
-  wood: {fileID: 0}
-  sword: {fileID: 0}
-  refiner: {fileID: 0}
+  wood: {fileID: 1347203759}
+  sword: {fileID: 1347203759}
+  refiner: {fileID: 6131594436518703225, guid: 8d07068fdd6d48c4bbc29d48f4960a3a, type: 3}
 --- !u!4 &1904375593
 Transform:
   m_ObjectHideFlags: 0
