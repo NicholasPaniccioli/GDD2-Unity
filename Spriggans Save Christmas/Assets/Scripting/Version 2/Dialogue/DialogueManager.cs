@@ -98,54 +98,12 @@ public class DialogueManager : MonoBehaviour
             }
         }
 
-        //Goes to continue or  Bench-Text
-        if (coal.active == false && diaInd == 4
-            || Input.GetKeyDown(KeyCode.Space) && diaInd == 10)
+        //Goes to Continue-Text
+        if (coal.active == false && diaInd == 4)
         {
-            if (diaInd == 4)
-            {
-                dialogue[diaInd].SetActive(false);
-                diaInd++;
-                dialogue[diaInd].SetActive(true);
-            }
-            else if (diaInd == 10)
-            {
-                dialogue[diaInd - 6].SetActive(false);
-                diaInd++;
-                dialogue[diaInd - 6].SetActive(true);
-            }
-        }
-
-        //Goes to Craft-Text
-        if(Input.GetKeyDown(KeyCode.Space) && diaInd == 11 && (player.GetComponent<Player>().holdingName == "Wood"))
-        {
-            dialogue[diaInd - 6].SetActive(false);
+            dialogue[diaInd].SetActive(false);
             diaInd++;
-            dialogue[diaInd - 6].SetActive(true);
-        }
-
-        //Goes to Finish Text
-        if (Input.GetKeyDown(KeyCode.Space) && diaInd == 12 && player.GetComponent<Player>().holdingName == "Sword")
-        {            
-            dialogue[diaInd - 6].SetActive(false);
-            diaInd++;
-            dialogue[diaInd - 6].SetActive(true);
-            
-        }
-
-        //Goes to Santa text
-        if(diaInd == 13 && player.transform.position.x < 12)
-        {         
-            dialogue[diaInd - 6].SetActive(false);
-            diaInd++;
-            dialogue[diaInd - 6].SetActive(true);           
-        }
-        //Goes to Continue text
-        if(sword.active == false && diaInd == 14)
-        {            
-            dialogue[diaInd - 6].SetActive(false);
-            diaInd++;
-            dialogue[diaInd - 6].SetActive(true);          
+            dialogue[diaInd].SetActive(true);
         }
 
 

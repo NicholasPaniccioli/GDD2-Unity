@@ -48,6 +48,11 @@ public class HoldingBench : Tile
             GameObject.Destroy(gameObject.transform.Find("Holding Sprite").gameObject);
             return true;
         }
+        else if (isHolding && player.isHolding) 
+        {
+
+            return false;
+        }
         else return false;
     }
 }

@@ -13,8 +13,7 @@ public class SantasSack : Tile
     GameObject listSword;
     GameObject listWand;
     GameObject listCoal;
-    
-
+    private AudioSource successSound;
 
     // default constructor for SantasSack
     public SantasSack()
@@ -42,6 +41,7 @@ public class SantasSack : Tile
         listSword = GameObject.Find("List Sword");
         listWand = GameObject.Find("List Wand");
         listCoal = GameObject.Find("List Coal");
+        successSound = GameObject.Find("SuccessSound").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -49,7 +49,7 @@ public class SantasSack : Tile
     {
         if (toyList.Count == 0)
         {
-            GameObject.Find("Timer").GetComponent<Timer>().winGame = true;
+            Timer.winGame = true;
         }
     }
 
@@ -99,6 +99,7 @@ public class SantasSack : Tile
                 {
                     listCoal.SetActive(false);      // remove Coal sprite from Toy List UI
                 }
+                successSound.Play();
                 Debug.Log("Successfully removed " + toyList[i] + " from Toy List.");    // output success message to console, specifying what was removed
                 toyList.RemoveAt(i);    // remove toy from toyList
                 return true;            // return true
